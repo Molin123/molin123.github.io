@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用 CSS 隐藏页面元素的 5 种方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用 CSS 隐藏页面元素的 5 种方法
+本文转载自：众成翻译
+译者：十年踪迹
+链接：http://www.zcfy.cc/article/457
+原文：https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+
+用 CSS 隐藏页面元素有许多种方法。你可以将 opacity 设为 0、将 visibility 设为 hidden、将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 CSS 隐藏页面元素的 5 种方法">
+<meta property="og:url" content="http://yoursite.com/2016/06/12/csshide/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用 CSS 隐藏页面元素的 5 种方法
+本文转载自：众成翻译
+译者：十年踪迹
+链接：http://www.zcfy.cc/article/457
+原文：https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+
+用 CSS 隐藏页面元素有许多种方法。你可以将 opacity 设为 0、将 visibility 设为 hidden、将">
+<meta property="og:updated_time" content="2016-08-16T08:09:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用 CSS 隐藏页面元素的 5 种方法">
+<meta name="twitter:description" content="用 CSS 隐藏页面元素的 5 种方法
+本文转载自：众成翻译
+译者：十年踪迹
+链接：http://www.zcfy.cc/article/457
+原文：https://www.sitepoint.com/five-ways-to-hide-elements-in-css/
+
+用 CSS 隐藏页面元素有许多种方法。你可以将 opacity 设为 0、将 visibility 设为 hidden、将">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-csshide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/12/csshide/" class="article-date">
+  <time datetime="2016-06-12T03:13:50.000Z" itemprop="datePublished">2016-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用 CSS 隐藏页面元素的 5 种方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="用-CSS-隐藏页面元素的-5-种方法"><a href="#用-CSS-隐藏页面元素的-5-种方法" class="headerlink" title="用 CSS 隐藏页面元素的 5 种方法"></a>用 CSS 隐藏页面元素的 5 种方法</h1><blockquote>
+<p>本文转载自：<a href="http://www.zcfy.cc" target="_blank" rel="external">众成翻译</a></p>
+<p>译者：<a href="http://www.zcfy.cc/@akira" target="_blank" rel="external">十年踪迹</a></p>
+<p>链接：<a href="http://www.zcfy.cc/article/457" target="_blank" rel="external">http://www.zcfy.cc/article/457</a></p>
+<p>原文：<a href="https://www.sitepoint.com/five-ways-to-hide-elements-in-css/" target="_blank" rel="external">https://www.sitepoint.com/five-ways-to-hide-elements-in-css/</a></p>
+</blockquote>
+<p>用 CSS 隐藏页面元素有许多种方法。你可以将 <code>opacity</code> 设为 <code>0</code>、将 <code>visibility</code> 设为 <code>hidden</code>、将 <code>display</code> 设为 <code>none</code> 或者将 <code>position</code> 设为 <code>absolute</code> 然后将位置设到不可见区域。</p>
+<p>你有没有想过，为什么我们要有这么多技术来隐藏元素，而它们看起来都实现的是同样的效果？每一种方法实际上与其他方法之间都有一些细微的不同，这些不同决定了在一个特定的场合下使用哪一个方法。这篇教程将覆盖到那些你需要记住的细小不同点，让你根据不同情况选择上面这些方法中适合的方法来隐藏元素。</p>
+<h2 id="Opacity"><a href="#Opacity" class="headerlink" title="Opacity"></a>Opacity</h2><p><code>opacity</code> 属性的意思是设置一个元素的透明度。它不是为改变元素的边界框（bounding box）而设计的。这意味着将 opacity 设为 0 只能从视觉上隐藏元素。而元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.hide &#123;</div><div class="line">  opacity: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你打算使用 <code>opacity</code> 属性在读屏软件中隐藏元素，很不幸，你并不能如愿。元素和它所有的内容会被读屏软件阅读，就像网页上的其他元素那样。换句话说，元素的行为就和它们不透明时一致。</p>
+<p>我还要提醒一句，<code>opacity</code> 属性可以用来实现一些效果很棒的动画。任何 <code>opacity</code> 属性值小于 <code>1</code> 的元素也会创建一个新的堆叠上下文（<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="external">stacking context</a>）。</p>
+<p>看下面的例子：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="external">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/bedZrR/" target="_blank" rel="external">“用 opacity 隐藏元素”</a></p>
+<p>当你的鼠标移到被隐藏的第 2 个的区块上，元素状态平滑地从完全透明过渡到完全不透明。区块也将 <code>cursor</code> 属性设置为了 <code>pointer</code>，这说明了用户可以与它交互。</p>
+<h2 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h2><p>第二个要说的属性是 <code>visibility</code>。将它的值设为 <code>hidden</code> 将隐藏我们的元素。如同 <code>opacity</code> 属性，被隐藏的元素依然会对我们的网页布局起作用。与 <code>opacity</code> 唯一不同的是它不会响应任何用户交互。此外，元素在读屏软件中也会被隐藏。</p>
+<p>这个属性也能够实现动画效果，只要它的初始和结束状态不一样。这确保了 visibility 状态切换之间的过渡动画可以是时间平滑的（事实上可以用这一点来用 hidden 实现元素的<a href="http://www.zhangxinxu.com/wordpress/2013/05/transition-visibility-show-hide/" target="_blank" rel="external">延迟显示和隐藏</a>——译者注）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.hide &#123;</div><div class="line">   visibility: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的例子演示了 <code>visibility</code> 与 <code>opacity</code> 有怎样的不同：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="external">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/pbJYpV/" target="_blank" rel="external">“用 visibility 隐藏元素”</a></p>
+<p>注意，如果一个元素的 <code>visibility</code> 被设置为 <code>hidden</code>，同时想要显示它的某个子孙元素，只要将那个元素的 <code>visibility</code> 显式设置为 <code>visible</code> 即可（就如例子里面的 .o-hide p——译者注）。尝试只 hover 在隐藏元素上，不要 hover 在 p 标签里的数字上，你会发现你的鼠标光标没有变成手指头的样子。此时，你点击鼠标，你的 click 事件也不会被触发。</p>
+<p>而在 <code>&lt;div&gt;</code> 标签里面的 <code>&lt;p&gt;</code> 标签则依然可以捕获所有的鼠标事件。一旦你的鼠标移动到文字上，<code>&lt;div&gt;</code> 本身变得可见并且事件注册也随之生效。</p>
+<h2 id="Display"><a href="#Display" class="headerlink" title="Display"></a>Display</h2><p><code>display</code> 属性依照词义真正隐藏元素。将 <code>display</code> 属性设为 <code>none</code> 确保元素不可见并且连盒模型也不生成。使用这个属性，被隐藏的元素不占据任何空间。不仅如此，一旦 <code>display</code> 设为 <code>none</code> 任何对该元素直接打用户交互操作都不可能生效。此外，读屏软件也不会读到元素的内容。这种方式产生的效果就像元素完全不存在。</p>
+<p>任何这个元素的子孙元素也会被同时隐藏。为这个属性添加过渡动画是无效的，它的任何不同状态值之间的切换总是会立即生效。</p>
+<p>不过请注意，通过 DOM 依然可以访问到这个元素。因此你可以通过 DOM 来操作它，就像操作其他的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.hide &#123;</div><div class="line">   display: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看下面的例子：</p>
+<p><a href="http://codepen.io/SitePoint" target="_blank" rel="external">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/zBGbjb/" target="_blank" rel="external">“用 display 隐藏元素”</a></p>
+<p>你将看到第二个块元素内有一个 <code>&lt;p&gt;</code> 元素，它自己的 <code>display</code> 属性被设置成 <code>block</code>，但是它依然不可见。这是 <code>visibility:hidden</code> 和 <code>display:none</code> 的另一个不同之处。在前一个例子里，将任何子孙元素 <code>visibility</code> 显式设置成 <code>visible</code> 可以让它变得可见，但是 <code>display</code> 不吃这一套，不管自身的 <code>display</code> 值是什么，只要祖先元素的 <code>display</code> 是 <code>none</code>，它们就都不可见。</p>
+<p>现在，将鼠标移到第一个块元素上面几次，然后点击它。这个操作将让第二个块元素显现出来，它其中的数字将是一个大于 0 的数。这是因为，元素即使被这样设置成对用户隐藏，还是可以通过 JavaScript 来进行操作。</p>
+<h2 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h2><p>假设有一个元素你想要与它交互，但是你又不想让它影响你的网页布局，没有合适的属性可以处理这种情况（opacity 和 visibility 影响布局， display 不影响布局但又无法直接交互——译者注）。在这种情况下，你只能考虑将元素移出可视区域。这个办法既不会影响布局，有能让元素保持可以操作。下面是采用这种办法的 CSS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.hide &#123;</div><div class="line">   position: absolute;</div><div class="line">   top: -9999px;</div><div class="line">   left: -9999px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的例子阐明了怎样通过绝对定位的方式隐藏元素，并让它和前面的那个例子效果一样：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="external">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/QEboZm/" target="_blank" rel="external">“用 position 属性隐藏元素”</a></p>
+<p>这种方法的主要原理是通过将元素的 top 和 left 设置成足够大的负数，使它在屏幕上不可见。采用这个技术的一个好处（或者潜在的缺点）是用它隐藏的元素的内容可以被读屏软件读取。这完全可以理解，是因为你只是将元素移到可视区域外面让用户无法看到它。</p>
+<p>你得避免使用这个方法去隐藏任何可以获得焦点的元素，因为如果那么做，当用户让那个元素获得焦点时，会导致一个不可预料的焦点切换。这个方法在创建自定义复选框和单选按钮时经常被使用。（用 DOM 模拟复选框和单选按钮，但用这个方法隐藏真正的 checkbox 和 radio 元素来“接收”焦点切换——译者注）</p>
+<h2 id="Clip-path"><a href="#Clip-path" class="headerlink" title="Clip-path"></a>Clip-path</h2><p>隐藏元素的另一种方法是通过剪裁它们来实现。在以前，这可以通过 <code>clip</code> 属性来实现，但是这个属性被废弃了，换成一个更好的属性叫做 <code>clip-path</code>。Nitish Kumar 最近在 SitePoint 发表了<a href="https://www.sitepoint.com/introducing-css-clip-path-property/" target="_blank" rel="external">“介绍 <code>clicp-path</code> 属性”</a>这篇文章，通过阅读它可以了解这个属性的更多高级用法。</p>
+<p>记住，<code>clip-path</code> 属性还<a href="http://caniuse.com/#feat=css-clip-path" target="_blank" rel="external">没有在 IE 或者 Edge 下被完全支持</a>。如果要在你的 <code>clip-path</code> 中使用外部的 SVG 文件，浏览器支持度还要更低。使用 <code>clip-path</code> 属性来隐藏元素的代码看起来如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.hide &#123;</div><div class="line">  clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面是一个实际使用它的例子：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="external">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/YWXgdW/" target="_blank" rel="external">“用 clip-path 属性隐藏元素”</a></p>
+<p>如果你把鼠标悬停在第一个元素上，它依然可以影响第二个元素，尽管第二个元素已经通过 <code>clip-path</code> 隐藏了。如果你点击它，它会移除用来隐藏的 class，让我们的元素从那个位置显现出来。被隐藏元素中的文字仍然能够通过读屏软件读取，许多 WordPress 站点使用 <code>clip-path</code> 或者之前的 <code>clip</code> 来实现专门为读屏软件提供的文字。</p>
+<p>虽然我们的元素自身不再显示，它也依然占据本该占据的矩形大小，它周围的元素的行为就如同它可见时一样。记住用户交互例如鼠标悬停或者点击在剪裁区域之外也不可能生效。在我们的例子里，剪裁区大小为零，这意味着用户将不能与隐藏的元素直接交互。此外，这个属性能够使用各种过渡动画来实现不同的效果。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在这篇教程里，我们看了 5 种不同的通过 CSS 隐藏元素的方法。每一种方法都与其他几种有一点区别。知道你想要实现什么有助于你决定采用哪一个属性，随着时间推移，你就能根据实际需求本能地选择最佳方式了。如果你对于隐藏元素的这些方法还有任何问题，请在评论中留言。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/12/csshide/" data-id="cirx73huh000be2ufe7z0j68s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/12/jsforin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js的for in 循环兼容问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/jscookie/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js操作cookie</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

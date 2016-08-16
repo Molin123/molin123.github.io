@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在mac中安装和配置MongoDB | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下载可以通过 官网 下载 MongoDB 。
+安装1.下载完成后解压到任意目录。2.打开终端进入MongoDB目录，新建mongodb数据库文件夹3.给数据库文件夹赋予读写权限： sudo chown -R data4.设置数据库文件路径权限并启动 bin/mongod –dbpath 路径（需要注意一点，默认是dbpath=/data/db，所以如果数据库文件夹不是这个的话，每次都要把路径加上）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在mac中安装和配置MongoDB">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/usemongo/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="下载可以通过 官网 下载 MongoDB 。
+安装1.下载完成后解压到任意目录。2.打开终端进入MongoDB目录，新建mongodb数据库文件夹3.给数据库文件夹赋予读写权限： sudo chown -R data4.设置数据库文件路径权限并启动 bin/mongod –dbpath 路径（需要注意一点，默认是dbpath=/data/db，所以如果数据库文件夹不是这个的话，每次都要把路径加上）">
+<meta property="og:updated_time" content="2016-08-16T08:14:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在mac中安装和配置MongoDB">
+<meta name="twitter:description" content="下载可以通过 官网 下载 MongoDB 。
+安装1.下载完成后解压到任意目录。2.打开终端进入MongoDB目录，新建mongodb数据库文件夹3.给数据库文件夹赋予读写权限： sudo chown -R data4.设置数据库文件路径权限并启动 bin/mongod –dbpath 路径（需要注意一点，默认是dbpath=/data/db，所以如果数据库文件夹不是这个的话，每次都要把路径加上）">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-usemongo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/usemongo/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在mac中安装和配置MongoDB
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>可以通过 <a href="https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.2.4.tgz" target="_blank" rel="external">官网</a> 下载 MongoDB 。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载完成后解压到任意目录。<br>2.打开终端进入MongoDB目录，新建mongodb数据库文件夹<br>3.给数据库文件夹赋予读写权限： sudo chown -R data<br>4.设置数据库文件路径权限并启动 bin/mongod –dbpath 路径（需要注意一点，默认是dbpath=/data/db，所以如果数据库文件夹不是这个的话，每次都要把路径加上）</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>输入 bin/mongod ，按回车，然后看到下面这样的提示，就说明我们已经成功启动数据库了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2016-04-13T15:53:07.551+0800 I CONTROL  [initandlisten] MongoDB starting : pid=57287 port=27017 dbpath=/data/db 64-bit host=molindeMacBook-Pro.local</div></pre></td></tr></table></figure></p>
+<p>在浏览器中打开 27017 端口就可以看到了。</p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>终端中输入 bin/mongo 按回车，就可以对数据库进行操作了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;user: &quot;accountUser&quot;,pwd: &quot;password&quot;,roles: [ &quot;readWrite&quot;, &quot;dbAdmin&quot; ]&#125;) //创建用户</div><div class="line">db.dropUser(&apos;accountUser&apos;); //删除用户</div><div class="line">show users //查看所有用户</div><div class="line">show dbs  //查看数据库</div><div class="line">show collections //查看集合</div><div class="line">db.createColletion(&apos;newCollection&apos;) //创建集合</div><div class="line">coll=db.getCollection(&apos;newCollection&apos;) //进如集合</div><div class="line">coll.find(); //查看集合中所有数据</div><div class="line">coll.find(&#123;name:&apos;molin&apos;&#125;); //查看name=‘molin’的数据</div><div class="line">coll.insert(&#123;name:&apos;Admin&apos;,age:&apos;23&apos;&#125;) //添加数据</div><div class="line">coll.remove(&#123;age:&apos;23&apos;&#125;); //删除数据</div><div class="line">coll.update(&#123;name:&apos;Admin&apos;&#125;,&#123;$set:&#123;age:&apos;age2&apos;&#125;&#125;,&#123;upsert:false,multi:true&#125;); //把name=‘Admin’ 的age改为age2，两个参数：upsert是true时，如果没有找到就会新增一条数据，multi如果为true就会更改多条匹配的数据（否则只改第一条）。</div><div class="line">coll.save(&#123;name:&apos;Admin&apos;,name:&apos;4&apos;,age:&apos;4&apos;&#125;); //把name=‘Admin’的name改为4，age改为4</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/usemongo/" data-id="cirx73hvm000te2ufbbai7udn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/03/setExpress/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          搭建一个express应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/03/gitblog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">如何在sae中部署GitBlog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

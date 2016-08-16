@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>搭建一个express应用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="express 是基于 node.js 的 web 应用开发框架，可以快速搭建一个网站。
+安装1.安装node这个不用多说
+2.安装express直接使用 npm install -g express 会报错。这里需要使用 sudo 命令获得 root 权限，然后输入密码安装 express 。命令为：sudo npm install -g express 。这时express已经安装完了，输入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建一个express应用">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/setExpress/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="express 是基于 node.js 的 web 应用开发框架，可以快速搭建一个网站。
+安装1.安装node这个不用多说
+2.安装express直接使用 npm install -g express 会报错。这里需要使用 sudo 命令获得 root 权限，然后输入密码安装 express 。命令为：sudo npm install -g express 。这时express已经安装完了，输入">
+<meta property="og:updated_time" content="2016-08-16T08:14:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建一个express应用">
+<meta name="twitter:description" content="express 是基于 node.js 的 web 应用开发框架，可以快速搭建一个网站。
+安装1.安装node这个不用多说
+2.安装express直接使用 npm install -g express 会报错。这里需要使用 sudo 命令获得 root 权限，然后输入密码安装 express 。命令为：sudo npm install -g express 。这时express已经安装完了，输入">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-setExpress" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/setExpress/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搭建一个express应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>express 是基于 node.js 的 web 应用开发框架，可以快速搭建一个网站。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-安装node"><a href="#1-安装node" class="headerlink" title="1.安装node"></a>1.安装node</h3><p>这个不用多说</p>
+<h3 id="2-安装express"><a href="#2-安装express" class="headerlink" title="2.安装express"></a>2.安装express</h3><p>直接使用 npm install -g express 会报错。这里需要使用 sudo 命令获得 root 权限，然后输入密码安装 express 。命令为：sudo npm install -g express 。这时express已经安装完了，输入 express -V （注意这里V大写），会提示 express 命令无法识别。这是因为 express4 版本将命令行工具 express 单独分离出来了，放到 express-generator 包中，老版本是集成在一起的。所以我们还需要执行 sudo install -g express-generator，现在就可以使用 express -V 命令查看 express 的版本号了。</p>
+<h2 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h2><p>直接在命令行中输入 express -e MyProjectName 就可以创建一个使用ejs模板的应用了。创建完成后项目目录结构如下图。<br>（不管你信不信，这是一张图）<br>进入bin目录，里面有一个 www 文件，我们的应用就是通过它来启动的。在命令行中输入node www,按回车。通过浏览器访问 127.0.0.1:3000 就可以看到 Welcome to Express 了，这样我们就成功地使用 express 创建了一个简单的应用。</p>
+<h2 id="forever"><a href="#forever" class="headerlink" title="forever"></a>forever</h2><p>使用 node www 启动应用后，如果我们对文件有修改，需要 crl+c 关闭应用，然后再重新启动才能在浏览器中看到修改。<br>forever可以看做是一个 node 的守护进程，使用 forever 能够启动、停止、重启 node 应用。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre><code>sudo npm install -g forever  //全局安装forever
+</code></pre><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre><code>forever start bin/www  //启动我们上面创建的应用
+forever start -w bin/www //启动并监听项目下的所有文件，修改后会重启应用
+</code></pre><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre><code>forever stop bin/www //停止应用
+forever stopall //停止所以应用
+</code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code>forever restart bin/www  //重启应用
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/setExpress/" data-id="cirx73hvl000se2uf1sduqrl8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/03/cookieandsession/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cookie 和 session
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/03/usemongo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在mac中安装和配置MongoDB</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

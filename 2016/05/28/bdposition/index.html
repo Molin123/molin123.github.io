@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何获得经纬度 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用html5获得经纬度需要浏览器支持html5并且用户同意定位请求才能获得经纬度，代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243var flag = false,timer;//容错处理var x=document.getElementById(&apos;dw&apos;);function ge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何获得经纬度">
+<meta property="og:url" content="http://yoursite.com/2016/05/28/bdposition/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用html5获得经纬度需要浏览器支持html5并且用户同意定位请求才能获得经纬度，代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243var flag = false,timer;//容错处理var x=document.getElementById(&apos;dw&apos;);function ge">
+<meta property="og:updated_time" content="2016-08-16T08:07:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何获得经纬度">
+<meta name="twitter:description" content="使用html5获得经纬度需要浏览器支持html5并且用户同意定位请求才能获得经纬度，代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243var flag = false,timer;//容错处理var x=document.getElementById(&apos;dw&apos;);function ge">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bdposition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/28/bdposition/" class="article-date">
+  <time datetime="2016-05-28T12:43:24.000Z" itemprop="datePublished">2016-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何获得经纬度
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用html5获得经纬度"><a href="#使用html5获得经纬度" class="headerlink" title="使用html5获得经纬度"></a>使用html5获得经纬度</h3><p>需要浏览器支持<code>html5</code>并且用户同意定位请求才能获得经纬度，代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> flag = <span class="literal">false</span>,timer;<span class="comment">//容错处理</span></div><div class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">'dw'</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocation</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (!flag) &#123;</div><div class="line">        x.innerHTML=<span class="string">"定位失败，请手动选择！"</span></div><div class="line">      &#125;</div><div class="line">    &#125;, <span class="number">5000</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (navigator.geolocation)&#123;</div><div class="line">        navigator.geolocation.getCurrentPosition(showPosition,showError);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        x.innerHTML=<span class="string">"您的手机不支持定位，请手动选择！"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPosition</span>(<span class="params">position</span>)</span></div><div class="line">    &#123;</div><div class="line">      flag = <span class="literal">true</span>;</div><div class="line">      clearTimeout(timer);</div><div class="line">        x.innerHTML=<span class="string">"Latitude: "</span> + position.coords.latitude + <span class="string">"&lt;br /&gt;Longitude: "</span> + position.coords.longitude;</div><div class="line">    &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showError</span>(<span class="params">error</span>)</span></div><div class="line">    &#123;</div><div class="line">      flag = <span class="literal">true</span>;</div><div class="line">      clearTimeout(timer);</div><div class="line">    <span class="keyword">switch</span>(error.code)</div><div class="line">        &#123;</div><div class="line">        <span class="keyword">case</span> error.PERMISSION_DENIED:</div><div class="line">            x.innerHTML=<span class="string">"请同意定位请求"</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> error.POSITION_UNAVAILABLE:</div><div class="line">            x.innerHTML=<span class="string">"位置信息不可用"</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> error.TIMEOUT:</div><div class="line">            x.innerHTML=<span class="string">"定位超时"</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> error.UNKNOWN_ERROR:</div><div class="line">            x.innerHTML=<span class="string">"定位失败"</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">getLocation();</div></pre></td></tr></table></figure></p>
+<h3 id="使用百度地图"><a href="#使用百度地图" class="headerlink" title="使用百度地图"></a>使用百度地图</h3><p>百度地图使用起来非常简单，如果我们只是想获得经纬度和城市信息，那么使用起来就更简单了。当然百度地图提供了非常丰富的aip，更多信息请见<a href="http://lbsyun.baidu.com/" target="_blank" rel="external">官网</a></p>
+<p>首先我们要去官网申请一个<code>密钥（ak）</code>，百度地图的<code>JavaScript API</code>没有使用次数限制（除发送短信功能外）。</p>
+<p>然后在我们的页面中加入下面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=7156259E57A6ffaa6d4ed3140c52353a&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;div id=&quot;bdMapBox&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var map = new BMap.Map(&quot;bdMapBox&quot;);</div><div class="line">    var nowCity = new BMap.LocalCity();</div><div class="line">    nowCity.get(bdGetPosition);</div><div class="line">    function bdGetPosition(result)&#123;</div><div class="line">        console.log(result);</div><div class="line">        document.getElementById(&apos;p1&apos;).innerHTML = &apos;城市：&apos; + result.name;</div><div class="line">        document.getElementById(&apos;p2&apos;).innerHTML = &apos;经度：&apos; + result.center.lat;</div><div class="line">        document.getElementById(&apos;p3&apos;).innerHTML = &apos;经度：&apos; + result.center.lng;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>通过上面的代码就可以获得经纬度和城市信息了，有没有觉得非常简单。</p>
+<p><a href="http://me.molinblog.com//demo/js/bdposition.html" target="_blank" rel="external">demo</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/28/bdposition/" data-id="cirx73hth0000e2uf71tbv0hd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/jscookie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js操作cookie
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/25/git-tab/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac下为Git设置自动补全功能</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

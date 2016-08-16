@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图片延迟加载方案 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="图片延迟加载的原理是什么？图片延迟加载的原理就是先不设置img的src属性，等合适的时机（比如滚动、滑动等）再把图片真实url放到img的src属性上。
+过多的图片会严重影响网页的加载速度，移动网络下的流量消耗巨大，延迟加载几乎是标配。
+图片延迟加载的使用场景有哪些？网站首页和列表页都有很多固定宽高的图片。
+详情页的图片，这些图片需要自适应宽度且保持宽高比（防止页面抖动）。
+固定宽高延迟加载这个比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片延迟加载方案">
+<meta property="og:url" content="http://yoursite.com/2016/06/22/imgload/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="图片延迟加载的原理是什么？图片延迟加载的原理就是先不设置img的src属性，等合适的时机（比如滚动、滑动等）再把图片真实url放到img的src属性上。
+过多的图片会严重影响网页的加载速度，移动网络下的流量消耗巨大，延迟加载几乎是标配。
+图片延迟加载的使用场景有哪些？网站首页和列表页都有很多固定宽高的图片。
+详情页的图片，这些图片需要自适应宽度且保持宽高比（防止页面抖动）。
+固定宽高延迟加载这个比">
+<meta property="og:updated_time" content="2016-08-16T08:12:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片延迟加载方案">
+<meta name="twitter:description" content="图片延迟加载的原理是什么？图片延迟加载的原理就是先不设置img的src属性，等合适的时机（比如滚动、滑动等）再把图片真实url放到img的src属性上。
+过多的图片会严重影响网页的加载速度，移动网络下的流量消耗巨大，延迟加载几乎是标配。
+图片延迟加载的使用场景有哪些？网站首页和列表页都有很多固定宽高的图片。
+详情页的图片，这些图片需要自适应宽度且保持宽高比（防止页面抖动）。
+固定宽高延迟加载这个比">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-imgload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/22/imgload/" class="article-date">
+  <time datetime="2016-06-22T03:15:01.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图片延迟加载方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图片延迟加载的原理是什么？"><a href="#图片延迟加载的原理是什么？" class="headerlink" title="图片延迟加载的原理是什么？"></a>图片延迟加载的原理是什么？</h2><p>图片延迟加载的原理就是先不设置<code>img</code>的<code>src</code>属性，等合适的时机（比如滚动、滑动等）再把图片真实<code>url</code>放到<code>img</code>的<code>src</code>属性上。</p>
+<p>过多的图片会严重影响网页的加载速度，移动网络下的流量消耗巨大，延迟加载几乎是标配。</p>
+<h2 id="图片延迟加载的使用场景有哪些？"><a href="#图片延迟加载的使用场景有哪些？" class="headerlink" title="图片延迟加载的使用场景有哪些？"></a>图片延迟加载的使用场景有哪些？</h2><p>网站首页和列表页都有很多固定宽高的图片。</p>
+<p>详情页的图片，这些图片需要自适应宽度且保持宽高比（防止页面抖动）。</p>
+<h3 id="固定宽高延迟加载"><a href="#固定宽高延迟加载" class="headerlink" title="固定宽高延迟加载"></a>固定宽高延迟加载</h3><p>这个比较简单，设置好固定宽高，直接使用最简单的延迟加载即可<br>淘宝mobile首页的延迟加载有个点做得特别好，滚动结束后只加载当前视窗可见的图片，不会加载滚动超过视窗的图片，也不会加载还没滚动到的视窗图片。</p>
+<h3 id="非固定宽高的延迟加载"><a href="#非固定宽高的延迟加载" class="headerlink" title="非固定宽高的延迟加载"></a>非固定宽高的延迟加载</h3><p>目前大概有两种方案，各有优劣，具体看情况使用：</p>
+<p>第一种方案使用padding-top或者padding-bottom来实现固定宽高比。优点是纯css方案，缺点是html冗余，对输出到第三方不友好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;padding-top:75%&quot;&gt;</div><div class="line">    &lt;img data-src=&quot;&quot; alt=&quot;&quot; class=&quot;lazyload&quot;&gt;</div><div class="line">&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>第二种方案在页面初始化阶段利用ratio设置实际宽高值，优点是html干净，对输出到第三方友好，缺点是依赖js，理论上会至少抖动一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img data-src=&quot;&quot; alt=&quot;&quot; class=&quot;lazyload&quot; data-ratio=&quot;0.75&quot;&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="更进一步结合srcset"><a href="#更进一步结合srcset" class="headerlink" title="更进一步结合srcset"></a>更进一步结合srcset</h3><p>除了上面说的延迟加载，我们可以更进一步的引入srcset，通过设置srcset来保证加载最匹配的图片，这样对于一倍屏，二倍屏，三倍屏来说，可以做到不浪费流量且效果最好。</p>
+<h2 id="都有哪些延迟加载开源方案？"><a href="#都有哪些延迟加载开源方案？" class="headerlink" title="都有哪些延迟加载开源方案？"></a>都有哪些延迟加载开源方案？</h2><p><a href="https://github.com/tuupola/jquery_lazyload" target="_blank" rel="external">jquery_lazyload</a>  依赖于jquery</p>
+<p><a href="https://github.com/aFarkas/lazysizes" target="_blank" rel="external">lazysizes 推荐</a></p>
+<ol>
+<li>原生js，不依赖于jquery/zepto</li>
+<li>自动监测可能发生变化的lazyload节点，不需要额外初始化</li>
+<li>支持响应式图片srcset</li>
+<li>性能高，改善SEO</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 引入js文件</div><div class="line">&lt;script src=&quot;lazysizes.min.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">// 非响应式 例子</div><div class="line">&lt;img data-src=&quot;image.jpg&quot; class=&quot;lazyload&quot; /&gt;</div><div class="line">// 响应式 例子，自动计算合适的图片</div><div class="line">&lt;img</div><div class="line">    data-sizes=&quot;auto&quot;</div><div class="line">    data-src=&quot;image2.jpg&quot;</div><div class="line">    data-srcset=&quot;image1.jpg 300w,</div><div class="line">    image2.jpg 600w,</div><div class="line">    image3.jpg 900w&quot; class=&quot;lazyload&quot; /&gt;</div><div class="line">// iframe 例子</div><div class="line">&lt;iframe frameborder=&quot;0&quot;</div><div class="line">    class=&quot;lazyload&quot;</div><div class="line">    allowfullscreen=&quot;&quot;</div><div class="line">    data-src=&quot;//www.youtube.com/embed/ZfV-aYdU4uE&quot;&gt;</div><div class="line">&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/jieyou/lazyload" target="_blank" rel="external">lazyload</a>  依赖jquery/zepto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 直接赋予图片宽高 --&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;</div><div class="line">&lt;!-- 或：通过css赋予图片宽高 --&gt;</div><div class="line">&lt;style&gt;</div><div class="line">    .lazy&#123;width:640px;height:480px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot;&gt;</div><div class="line">&lt;!-- 或：自适应宽度的图片样式（常用于移动端） --&gt;</div><div class="line">&lt;style&gt;</div><div class="line">    .lazy&#123;width:100%;height:0;padding-top:75%;background-size:100%;&#125;</div><div class="line">    /* 假设高宽比为 480:640，即75%，并使用背景图的方式将图片铺在padding-top区域内</div><div class="line">    （padding的百分比是宽度的百分比而不是高度的，即使是padding-top|padding-bottom） */</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot;&gt;&lt;div&gt;</div><div class="line">&lt;!-- 请参阅examples/enabled_image_full_width.html --&gt;</div><div class="line">&lt;!-- 初始化 --&gt;</div><div class="line">$(&quot;.lazy&quot;).lazyload();</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/22/imgload/" data-id="cirx73huy000ie2ufo8j8s40r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/29/question/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端面试题（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/17/html5-localstorage/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">html5 动态存储 localStorage.name 和localStorage.setItem()的差别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

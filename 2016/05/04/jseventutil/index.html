@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>手写事件模型及事件代理/委托 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事件的三个阶段
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
+
+HTML事件处理程序1&amp;lt;input type=&apos;button&apos; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;
+DOM0级事件处理程序123btn.onclick=function()&amp;#123;    alert(&quot;Clicked&quot;);&amp;#125;
+程序中的12删除：```btn.onclick=null;//删">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手写事件模型及事件代理/委托">
+<meta property="og:url" content="http://yoursite.com/2016/05/04/jseventutil/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="事件的三个阶段
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
+
+HTML事件处理程序1&amp;lt;input type=&apos;button&apos; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;
+DOM0级事件处理程序123btn.onclick=function()&amp;#123;    alert(&quot;Clicked&quot;);&amp;#125;
+程序中的12删除：```btn.onclick=null;//删">
+<meta property="og:updated_time" content="2016-08-16T08:12:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手写事件模型及事件代理/委托">
+<meta name="twitter:description" content="事件的三个阶段
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
+
+HTML事件处理程序1&amp;lt;input type=&apos;button&apos; onclick=&quot;alert(&apos;Clicked&apos;)&quot; /&amp;gt;
+DOM0级事件处理程序123btn.onclick=function()&amp;#123;    alert(&quot;Clicked&quot;);&amp;#125;
+程序中的12删除：```btn.onclick=null;//删">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jseventutil" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/jseventutil/" class="article-date">
+  <time datetime="2016-05-04T02:12:08.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      手写事件模型及事件代理/委托
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h3><ol>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ol>
+<h3 id="HTML事件处理程序"><a href="#HTML事件处理程序" class="headerlink" title="HTML事件处理程序"></a>HTML事件处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">'button'</span> onclick=<span class="string">"alert('Clicked')"</span> /&gt;</div></pre></td></tr></table></figure>
+<h3 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a>DOM0级事件处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Clicked"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序中的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">删除：```btn.onclick=null;//删除事件处理程序</div></pre></td></tr></table></figure></p>
+<h3 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">addEventListener();</div><div class="line">removeEventListener();</div></pre></td></tr></table></figure>
+<p>三个参数：要处理的事件名；作为事件处理程序的函数，一个布尔值（true：捕获阶段调用；false：冒泡阶段调用）。</p>
+<p>可以添加多个事件处理程序，按照添加的顺序触发。</p>
+<p>移除时传入的参数与添加处理程序时使用的参数必须相同，这意味着通过其添加的匿名函数无法移除。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">btn.addEventListener(<span class="string">'click'</span>,hander,<span class="literal">false</span>);</div><div class="line">btn.removeEventListener(<span class="string">'click'</span>,hander,<span class="literal">false</span>);</div></pre></td></tr></table></figure></p>
+<p>大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以最大限度地兼容各种浏览器。</p>
+<h3 id="IE事件处理程序"><a href="#IE事件处理程序" class="headerlink" title="IE事件处理程序"></a>IE事件处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">attachEvent();</div><div class="line">detachEvent();</div></pre></td></tr></table></figure>
+<p>两个参数：事件处理程序名称；事件处理程序函数。</p>
+<p>注意：第一个参数是<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```js</div><div class="line">btn.attachEvent(&apos;onclick&apos;,hander);</div><div class="line">btn,detachEvent(&apos;onclick&apos;,hander);</div></pre></td></tr></table></figure></p>
+<p>也可以添加多个事件处理程序，但是执行顺序相反，后添加的先被执行。</p>
+<h3 id="事件对象（非IE浏览器）"><a href="#事件对象（非IE浏览器）" class="headerlink" title="事件对象（非IE浏览器）"></a>事件对象（非IE浏览器）</h3><p>在触发DOM上的某个事件时，会产生一个事件对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```js</div><div class="line">&lt;input type=&apos;button&apos; onclick=&apos;alert(event.type)&apos; /&gt;</div></pre></td></tr></table></figure></p>
+<p>兼容DOM(DOM0级或DOM2级)的浏览器会将一个<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```js</div><div class="line">btn.onclick=function(event)&#123;alert(event.type);&#125;    //&apos;click&apos;</div><div class="line">btn.addEventListener(&apos;click&apos;,function(event)&#123;alert(event.type);&#125;,false);   //&apos;click&apos;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>其事件处理程序当前正在处理事件的那个元素。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">```target```：事件的目标。</div><div class="line"></div><div class="line">在事件处理程序内部，对象```this```始终等于```currentTarget```的值，而```target```则只包含事件的实际目标。如果直接将事件处理程序制定给了目标元素，则```this```、```currentTarget```和```target```包含相同的值。</div><div class="line">```js</div><div class="line">btn.onclick = function(event)&#123;</div><div class="line">    alert(event.currentTarget === this);        //true</div><div class="line">    alert(event.target === this);               //true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果事件处理程序存在于按钮的父节点中，则不相同：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.boy.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    alert(event.currentTarget === <span class="built_in">document</span>.body);             <span class="comment">//true</span></div><div class="line">    alert(<span class="keyword">this</span> === body);                                     <span class="comment">//true</span></div><div class="line">    alert(event.target === <span class="built_in">document</span>.getElementById(<span class="string">'myBtn'</span>)); <span class="comment">//true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>阻止默认行为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">link.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;event.preventDefault();&#125;;</div></pre></td></tr></table></figure></p>
+<p>事件的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">```js</div><div class="line">btn.onclick = function(event)&#123;</div><div class="line">    alert(event.eventPhase);      //2 -&gt; 目标</div><div class="line">&#125;;</div><div class="line">document.body.addEventListener(&apos;click&apos;,function(event)&#123;</div><div class="line">    alert(event.eventPhase);      //1 -&gt; 捕获</div><div class="line">&#125;,true);</div><div class="line">document.body.onclick = function(event)&#123;</div><div class="line">    alert(event.eventPhase);      //3 -&gt; 冒泡</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>立刻停止事件的传播（捕获、冒泡）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">```js</div><div class="line">btn.onclick = function(event)&#123;</div><div class="line">    alert(1);</div><div class="line">    event.stopPropagation();</div><div class="line">&#125;</div><div class="line">document.body.onclick = function(event)&#123;</div><div class="line">    alert(2);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于阻止了事件的继续传播，所以上面的代码不会弹出2.</p>
+<p>我们可以通过使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">```js</div><div class="line">var handler = function(event)&#123;</div><div class="line">    switch(event.type)&#123;</div><div class="line">        case &apos;click&apos;:</div><div class="line">            alert(&apos;Clicked&apos;);</div><div class="line">            break;</div><div class="line">        case &apos;mouseover&apos;:</div><div class="line">            alert(&apos;MouseOver&apos;);</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">btn.onclick = handler;</div><div class="line">btn.onmouseover = handler;</div></pre></td></tr></table></figure></p>
+<h3 id="IE中的事件对象"><a href="#IE中的事件对象" class="headerlink" title="IE中的事件对象"></a>IE中的事件对象</h3><p>使用DOM0：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> event = <span class="built_in">window</span>.event;</div><div class="line">    alert(event.type);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用DOM2：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.attachEvent(<span class="string">'onclick'</span>,funciton(event)&#123;</div><div class="line">    alert(event.type);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>事件的目标：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">因为事件处理程序的作用域是根据指定它的方式来确定的，所以不能认为```this```会始终等于事件目标。故而，最好还是使用```event.srcElement```比较保险。例如：</div><div class="line">```js</div><div class="line">btn.onclick = funciton()&#123;</div><div class="line">    alert(window.event.srcElement === this);        //true</div><div class="line">&#125;</div><div class="line">btn.attachEvent(&apos;onclick&apos;,function(event)&#123;</div><div class="line">    alert(event.srcElement === this);              //false</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>取消默认行为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">link.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.event.returnValue = <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>取消冒泡：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.event.cancleBubble = <span class="literal">true</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="兼容的事件处理函数"><a href="#兼容的事件处理函数" class="headerlink" title="兼容的事件处理函数"></a>兼容的事件处理函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> EventUtil = &#123;</div><div class="line">    addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(element.addEventListener)&#123;</div><div class="line">            element.addEventListener(type, handler, <span class="literal">false</span>);   <span class="comment">//false冒泡时触发</span></div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">            element.attachEvent(<span class="string">"on"</span> + type, handler);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            element[<span class="string">"on"</span> + type] = handler;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(element.removeEventListener)&#123;</div><div class="line">            element.removeEventListener(type, handler, <span class="literal">false</span>);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(element.detachEvent)&#123;</div><div class="line">            element.detachEvent(<span class="string">"on"</span> + type, handler);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getEvent: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> event?event:<span class="built_in">window</span>.event;</div><div class="line">    &#125;,</div><div class="line">    getTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> event.target || event.srcElement;      <span class="comment">//事件的实际目标</span></div><div class="line">    &#125;,</div><div class="line">    preventDefault: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;       <span class="comment">//取消时间的默认行为</span></div><div class="line">        <span class="keyword">if</span>(event.preventDefault)&#123;</div><div class="line">            event.preventDefault();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            event.returnValue = <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;      <span class="comment">//立即停止事件的传播（取消捕获、冒泡）</span></div><div class="line">        <span class="keyword">if</span>(event.stopPropagation)&#123;</div><div class="line">            event.stopPropagation();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            event.cancelBubble = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/jseventutil/" data-id="cirx73hv6000me2ufs9or9qp0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/11/utilInherits/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          util.inherits实现对象间原型继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/04/jsnew/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">new操作符具体干了什么呢?</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-saesign" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/12/test2/" class="article-date">
-  <time datetime="2016-08-12T13:15:44.000Z" itemprop="datePublished">2016-08-12</time>
+    <a href="/2016/08/15/saesign/" class="article-date">
+  <time datetime="2016-08-15T03:28:12.000Z" itemprop="datePublished">2016-08-15</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/12/test2/">test2</a>
+      <a class="article-title" href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
     </h1>
   
 
@@ -83,49 +83,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>fasdfh返回第四爱；多撒谎工地上； 会告诉大哥好</p>
+        <h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>直接去实名认证不就可以了吗。简单粗暴的方法</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>其实这个黑色的提示条可以归类到流量劫持，所以有一种非常好的解决方式，在页面的最后加半个注释。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>经过在网上查找资料，发现sae会在入口文件没有<code>header(&#39;content-type: &#39;);</code>的项目中加入实名认证的提示。</p>
+<p>所以我们只需要在入口文件里加入这行代码就可以了。php项目在<code>index.php</code>里面加入就可以了，其它的项目就请自行研究吧。</p>
+<p>最后放上sae的注册链接 <a href="http://t.cn/RGkCvS5" target="_blank" rel="external">sae</a><br><a href="http://t.cn/RGkCvS5" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/9ad93ac1gw1f6udk7o233j21hr0gjjub.jpg" alt="alt text" title="sae"></a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/12/test2/" data-id="cirrs1va80000iauffv02qlyr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/12/test/" class="article-date">
-  <time datetime="2016-08-12T13:03:20.000Z" itemprop="datePublished">2016-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/12/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>fsdaiohfsudahfsaduhfuksh</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/12/test/" data-id="cirrs1val0002iaufrw3burn1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/15/saesign/" data-id="cirx73hvj000re2ufyv56vjf0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +137,657 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/12/hello-world/" data-id="cirrs1vag0001iaufaedvf95d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/12/hello-world/" data-id="cirx73hul000ce2ufr89un7wr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/12/hexo/" class="article-date">
+  <time datetime="2016-08-12T12:24:54.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li>安装git</li>
+<li>github账号</li>
+<li>安装hexo脚手架</li>
+</ol>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>在github上创建一个新的仓库，名字格式为 <code>XXXX.github.io</code> 。<code>XXX</code>必须是你的用户名。</p>
+<h4 id="安装hexo-cli"><a href="#安装hexo-cli" class="headerlink" title="安装hexo-cli"></a>安装hexo-cli</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h4 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h4><ol>
+<li><code>git init</code></li>
+<li><code>hexo init</code></li>
+<li>更改配置文件<code>_config.yml</code>如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/XXXX/XXXX.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：key和value之间必须有一个空格</p>
+<ol>
+<li><code>npm install hexo-deployer-git --save</code></li>
+<li><code>hexo generate</code></li>
+<li><code>hexo deploy</code>（这个过程很慢，请耐心等待）<br>第一次会提示输入github账号和密码</li>
+</ol>
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><ol>
+<li>执行 <code>hexo new + 文章名</code>，然后就可以去<code>resource/_posts</code>下面编写对应的md文件就可以了</li>
+<li><code>hexo generate</code>(相当于add+commit)</li>
+<li><code>hexo deploy</code>(相当于push)</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+<p><a href="http://blog.csdn.net/renfufei/article/details/37725057/" target="_blank" rel="external">创建GitHub技术博客全攻略</a></p>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo文档</a></p>
+<p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/12/hexo/" data-id="cirx73huo000ee2ufu3saq6oe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-emoji" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/11/emoji/" class="article-date">
+  <time datetime="2016-08-11T06:33:02.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>demo如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;title&gt;表情&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;</div><div class="line">    &lt;a onclick=&quot;ab();&quot;&gt;btn&lt;/a&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">function ab()&#123;</div><div class="line">    var i = document.getElementById(&apos;input&apos;);</div><div class="line">    var a = i.value;</div><div class="line">    var t =/[\uD800-\uDBFF][\uDC00-\uDFFF]/g;</div><div class="line">    console.log(a);</div><div class="line">    console.log(t.test(a));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/11/emoji/" data-id="cirx73hu60007e2ufkn9xapdj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-zeptozip" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/10/zeptozip/" class="article-date">
+  <time datetime="2016-08-10T12:04:50.000Z" itemprop="datePublished">2016-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题的产生"><a href="#问题的产生" class="headerlink" title="问题的产生"></a>问题的产生</h3><p>最近一直在支付宝做一个校园相关的项目，一直也没有时间更新博客。这次项目是和java的同事配合，因为各种原因没有做到前后端分离，真是各种蛋疼啊。</p>
+<p>虽然以前也做过几个移动端的项目，但是一直使用的都是jquery,这次是因为支付宝对页面大小的要求才选择了zepto。</p>
+<p>而在项目中遇到的一个更大的问题是zepto造成的。这次的项目是移动端的项目，所以选择了zepto和require。在没有对代码进行打包合并后，是没有任何问题的，很完美！但是，问题在打包的时候就出现了，各种报错。而原因就是zepto的问题。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在zepto源码的前面加上下面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">window.Zepto = Zepto</div><div class="line">&apos;$&apos; in window || (window.$ = Zepto)</div><div class="line"></div><div class="line">if ( typeof define === &quot;function&quot; &amp;&amp; define.amd ) &#123;</div><div class="line">  define( &quot;zepto&quot;, [], function () &#123; return Zepto; &#125; );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://stackoverflow.com/questions/13425815/how-to-use-requirejs-with-zepto" target="_blank" rel="external">参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/10/zeptozip/" data-id="cirx73hvp000we2ufx6c5nmsr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-forward" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/01/forward/" class="article-date">
+  <time datetime="2016-08-01T10:49:37.000Z" itemprop="datePublished">2016-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/01/forward/">forward</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.从地址栏显示来说<br>forward是服务器请求资源,服务器直接访问目标地址的URL,把那个URL的响应内容读取过来,然后把这些内容再发给浏览器.浏览器根本不知道服务器发送的内容从哪里来的,所以它的地址栏还是原来的地址.<br>redirect是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址.所以地址栏显示的是新的URL.</p>
+<p>2.从数据共享来说<br>forward:转发页面和转发到的页面可以共享request里面的数据.<br>redirect:不能共享数据.</p>
+<p>3.从运用地方来说<br>forward:一般用于用户登陆的时候,根据角色转发到相应的模块.<br>redirect:一般用于用户注销登陆时返回主页面和跳转到其它的网站等.</p>
+<p>4.从效率来说<br>forward:高.<br>redirect:低.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/01/forward/" data-id="cirx73hu40006e2ufrtta8c9q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-question" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/question/" class="article-date">
+  <time datetime="2016-06-29T02:37:34.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/question/">前端面试题（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#前端工作面试问题</p>
+<p>本文包含了一些用于考查候选者的前端面试问题。不建议对单个候选者问及每个问题 (那需要好几个小时)。只要从列表里挑选一些，就能帮助你考查候选者是否具备所需要的技能。</p>
+<p><strong>备注：</strong> 这些问题中很多都是开放性的，可以引发有趣的讨论。这比直接的答案更能体现此人的能力。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="toc">目录</a></h2><ol>
+<li><a href="#general-questions">常见问题</a></li>
+<li><a href="#html-questions">HTML 相关问题</a></li>
+<li><a href="#css-questions">CSS 相关问题</a></li>
+<li><a href="#js-questions">JS 相关问题</a></li>
+<li><a href="#testing-questions">测试相关问题</a></li>
+<li><a href="#performance-questions">效能相关问题</a></li>
+<li><a href="#network-questions">网络相关问题</a></li>
+<li><a href="#coding-questions">代码相关问题</a></li>
+<li><a href="#fun-questions">趣味问题</a></li>
+</ol>
+<h2 id="参与协作"><a href="#参与协作" class="headerlink" title="参与协作"></a>参与协作</h2><ol>
+<li><a href="#contributors">贡献者</a></li>
+<li><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/CONTRIBUTING.md" target="_blank" rel="external">如何参与贡献</a></li>
+<li><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/LICENSE.md" target="_blank" rel="external">许可协议</a></li>
+</ol>
+<h4 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a><a name="general-questions">常见问题：</a></h4><ul>
+<li>你在昨天/本周学到了什么？</li>
+<li>编写代码的哪些方面能够使你兴奋或感兴趣？</li>
+<li>你最近遇到过什么技术挑战？你是如何解决的？</li>
+<li>在制作一个网页应用或网站的过程中，你是如何考虑其 UI、安全性、高性能、SEO、可维护性以及技术因素的？</li>
+<li>请谈谈你喜欢的开发环境。</li>
+<li>你最熟悉哪一套版本控制系统？</li>
+<li>你能描述当你制作一个网页的工作流程吗？</li>
+<li>假若你有 5 个不同的样式文件 (stylesheets), 整合进网站的最好方式是?</li>
+<li>你能描述渐进增强 (progressive enhancement) 和优雅降级 (graceful degradation) 之间的不同吗?</li>
+<li>你如何对网站的文件和资源进行优化？</li>
+<li>浏览器同一时间可以从一个域名下载多少资源？<ul>
+<li>有什么例外吗？</li>
+</ul>
+</li>
+<li>请说出三种减少页面加载时间的方法。(加载时间指感知的时间或者实际加载时间)</li>
+<li>如果你参与到一个项目中，发现他们使用 Tab 来缩进代码，但是你喜欢空格，你会怎么做？</li>
+<li>请写一个简单的幻灯效果页面。</li>
+<li>如果今年你打算熟练掌握一项新技术，那会是什么？</li>
+<li>请谈谈你对网页标准和标准制定机构重要性的理解。</li>
+<li>什么是 FOUC (无样式内容闪烁)？你如何来避免 FOUC？</li>
+<li>请解释什么是 ARIA 和屏幕阅读器 (screenreaders)，以及如何使网站实现无障碍访问 (accessible)。</li>
+<li>请解释 CSS 动画和 JavaScript 动画的优缺点。</li>
+<li>什么使 CORS，以及其要解决的问题？</li>
+</ul>
+<h4 id="HTML-相关问题："><a href="#HTML-相关问题：" class="headerlink" title="HTML 相关问题："></a><a name="html-questions">HTML 相关问题：</a></h4><ul>
+<li><code>doctype</code>(文档类型) 的作用是什么？</li>
+<li>浏览器标准模式 (standards mode) 、几乎标准模式（almost standards mode）和怪异模式 (quirks mode) 之间的区别是什么？</li>
+<li>HTML 和 XHTML 有什么区别？</li>
+<li>如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？</li>
+<li>如果网页内容需要支持多语言，你会怎么做？</li>
+<li>在设计和开发多语言网站时，有哪些问题你必须要考虑？</li>
+<li>使用 <code>data-</code> 属性的好处是什么？</li>
+<li>如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？</li>
+<li>请描述 <code>cookies</code>、<code>sessionStorage</code> 和 <code>localStorage</code> 的区别。</li>
+<li>请解释 <code>&lt;script&gt;</code>、<code>&lt;script async&gt;</code> 和 <code>&lt;script defer&gt;</code> 的区别。</li>
+<li>为什么通常推荐将 CSS <code>&lt;link&gt;</code> 放置在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，而将 JS <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 之前？你知道有哪些例外吗？</li>
+<li>什么是渐进式渲染 (progressive rendering)？</li>
+<li>你用过哪些不同的 HTML 模板语言？</li>
+</ul>
+<h4 id="CSS-相关问题："><a href="#CSS-相关问题：" class="headerlink" title="CSS 相关问题："></a><a name="css-questions">CSS 相关问题：</a></h4><ul>
+<li>CSS 中类 (classes) 和 ID 的区别。</li>
+<li>请问 “resetting” 和 “normalizing” CSS 之间的区别？你会如何选择，为什么？</li>
+<li>请解释浮动 (Floats) 及其工作原理。</li>
+<li>描述<code>z-index</code>和叠加上下文是如何形成的。</li>
+<li>请描述 BFC(Block Formatting Context) 及其如何工作。</li>
+<li>列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。</li>
+<li>请解释 CSS sprites，以及你要如何在页面或网站中实现它。</li>
+<li>你最喜欢的图片替换方法是什么，你如何选择使用。</li>
+<li>你会如何解决特定浏览器的样式问题？</li>
+<li>如何为有功能限制的浏览器提供网页？<ul>
+<li>你会使用哪些技术和处理方法？</li>
+</ul>
+</li>
+<li>有哪些的隐藏内容的方法 (如果同时还要保证屏幕阅读器可用呢)？</li>
+<li>你用过栅格系统 (grid system) 吗？如果使用过，你最喜欢哪种？</li>
+<li>你用过媒体查询，或针对移动端的布局/CSS 吗？</li>
+<li>你熟悉 SVG 样式的书写吗？</li>
+<li>如何优化网页的打印样式？</li>
+<li>在书写高效 CSS 时会有哪些问题需要考虑？</li>
+<li>使用 CSS 预处理器的优缺点有哪些？<ul>
+<li>请描述你曾经使用过的 CSS 预处理器的优缺点。</li>
+</ul>
+</li>
+<li>如果设计中使用了非标准的字体，你该如何去实现？</li>
+<li>请解释浏览器是如何判断元素是否匹配某个 CSS 选择器？</li>
+<li>请描述伪元素 (pseudo-elements) 及其用途。</li>
+<li>请解释你对盒模型的理解，以及如何在 CSS 中告诉浏览器使用不同的盒模型来渲染你的布局。</li>
+<li><p>请解释 <figure class="highlight plain"><figcaption><span>&#123; box-sizing: border-box; &#125;``` 的作用, 并且说明使用它有什么好处？</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">* 请罗列出你所知道的 display 属性的全部值</div><div class="line">* 请解释 inline 和 inline-block 的区别？</div><div class="line">* 请解释 relative、fixed、absolute 和 static 元素的区别</div><div class="line">* CSS 中字母 &apos;C&apos; 的意思是叠层 (Cascading)。请问在确定样式的过程中优先级是如何决定的 (请举例)？如何有效使用此系统？</div><div class="line">* 你在开发或生产环境中使用过哪些 CSS 框架？你觉得应该如何改善他们？</div><div class="line">* 请问你有尝试过 CSS Flexbox 或者 Grid 标准规格吗？</div><div class="line">* 为什么响应式设计 (responsive design) 和自适应设计 (adaptive design) 不同？</div><div class="line">* 你有兼容 retina 屏幕的经历吗？如果有，在什么地方使用了何种技术？</div><div class="line">* 请问为何要使用 `translate()` 而非 *absolute positioning*，或反之的理由？为什么？</div><div class="line"></div><div class="line">#### &lt;a name=&apos;js-questions&apos;&gt;JS 相关问题：&lt;/a&gt;</div><div class="line"></div><div class="line">* 请解释事件代理 (event delegation)。</div><div class="line">* 请解释 JavaScript 中 `this` 是如何工作的。</div><div class="line">* 请解释原型继承 (prototypal inheritance) 的原理。</div><div class="line">* 你怎么看 AMD vs. CommonJS？</div><div class="line">* 请解释为什么接下来这段代码不是 IIFE (立即调用的函数表达式)：`function foo()&#123; &#125;();`.</div><div class="line">  * 要做哪些改动使它变成 IIFE?</div><div class="line">* 描述以下变量的区别：`null`，`undefined` 或 `undeclared`？</div><div class="line">  * 该如何检测它们？</div><div class="line">* 什么是闭包 (closure)，如何使用它，为什么要使用它？</div><div class="line">* 请举出一个匿名函数的典型用例？</div><div class="line">* 你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？</div><div class="line">* 请指出 JavaScript 宿主对象 (host objects) 和原生对象 (native objects) 的区别？</div><div class="line">* 请指出以下代码的区别：`function Person()&#123;&#125;`、`var person = Person()`、`var person = new Person()`？</div><div class="line">* `.call` 和 `.apply` 的区别是什么？</div><div class="line">* 请解释 `Function.prototype.bind`？</div><div class="line">* 在什么时候你会使用 `document.write()`？</div><div class="line">* 请指出浏览器特性检测，特性推断和浏览器 UA 字符串嗅探的区别？</div><div class="line">* 请尽可能详尽的解释 Ajax 的工作原理。</div><div class="line">* 使用 Ajax 都有哪些优劣？</div><div class="line">* 请解释 JSONP 的工作原理，以及它为什么不是真正的 Ajax。</div><div class="line">* 你使用过 JavaScript 模板系统吗？</div><div class="line">  * 如有使用过，请谈谈你都使用过哪些库？</div><div class="line">* 请解释变量声明提升 (hoisting)。</div><div class="line">* 请描述事件冒泡机制 (event bubbling)。</div><div class="line">* &quot;attribute&quot; 和 &quot;property&quot; 的区别是什么？</div><div class="line">* 为什么扩展 JavaScript 内置对象不是好的做法？</div><div class="line">* 请指出 document load 和 document DOMContentLoaded 两个事件的区别。</div><div class="line">* `==` 和 `===` 有什么不同？</div><div class="line">* 请解释 JavaScript 的同源策略 (same-origin policy)。</div><div class="line">* 如何实现下列代码：</div><div class="line">```javascript</div><div class="line">[1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>什么是三元表达式 (Ternary expression)？“三元 (Ternary)” 表示什么意思？</p>
+</li>
+<li>什么是 <code>&quot;use strict&quot;;</code> ? 使用它的好处和坏处分别是什么？</li>
+<li>请实现一个遍历至 <code>100</code> 的 for loop 循环，在能被 <code>3</code> 整除时输出 <strong>“fizz”</strong>，在能被 <code>5</code> 整除时输出 <strong>“buzz”</strong>，在能同时被 <code>3</code> 和 <code>5</code> 整除时输出 <strong>“fizzbuzz”</strong>。</li>
+<li>为何通常会认为保留网站现有的全局作用域 (global scope) 不去改变它，是较好的选择？</li>
+<li>为何你会使用 <code>load</code> 之类的事件 (event)？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？</li>
+<li>请解释什么是单页应用 (single page app), 以及如何使其对搜索引擎友好 (SEO-friendly)。</li>
+<li>What is the extent of your experience with Promises and/or their polyfills?</li>
+<li>使用 Promises 而非回调 (callbacks) 优缺点是什么？</li>
+<li>使用一种可以编译成 JavaScript 的语言来写 JavaScript 代码有哪些优缺点？</li>
+<li>你使用哪些工具和技术来调试 JavaScript 代码？</li>
+<li>你会使用怎样的语言结构来遍历对象属性 (object properties) 和数组内容？</li>
+<li>请解释可变 (mutable) 和不变 (immutable) 对象的区别。<ul>
+<li>请举出 JavaScript 中一个不变性对象 (immutable object) 的例子？</li>
+<li>不变性 (immutability) 有哪些优缺点？</li>
+<li>如何用你自己的代码来实现不变性 (immutability)？</li>
+</ul>
+</li>
+<li>请解释同步 (synchronous) 和异步 (asynchronous) 函数的区别。</li>
+<li>什么是事件循环 (event loop)？<ul>
+<li>请问调用栈 (call stack) 和任务队列 (task queue) 的区别是什么？</li>
+</ul>
+</li>
+<li>解释 <code>function foo() {}</code> 与 <code>var foo = function() {}</code> 用法的区别</li>
+</ul>
+<h4 id="测试相关问题："><a href="#测试相关问题：" class="headerlink" title="测试相关问题："></a><a name="testing-questions">测试相关问题：</a></h4><ul>
+<li>对代码进行测试的有什么优缺点？</li>
+<li>你会用什么工具测试你的代码功能？</li>
+<li>单元测试与功能/集成测试的区别是什么？</li>
+<li>代码风格 linting 工具的作用是什么？</li>
+</ul>
+<h4 id="效能相关问题："><a href="#效能相关问题：" class="headerlink" title="效能相关问题："></a><a name="performance-questions">效能相关问题：</a></h4><ul>
+<li>你会用什么工具来查找代码中的性能问题？</li>
+<li>你会用什么方式来增强网站的页面滚动效能？</li>
+<li>请解释 layout、painting 和 compositing 的区别。</li>
+</ul>
+<h4 id="网络相关问题："><a href="#网络相关问题：" class="headerlink" title="网络相关问题："></a><a name="network-questions">网络相关问题：</a></h4><ul>
+<li>为什么传统上利用多个域名来提供网站资源会更有效？</li>
+<li>请尽可能完整得描述从输入 URL 到整个网页加载完毕及显示在屏幕上的整个流程。</li>
+<li>Long-Polling、Websockets 和 Server-Sent Event 之间有什么区别？</li>
+<li>请描述以下 request 和 response headers：<ul>
+<li>Diff. between Expires, Date, Age and If-Modified-…</li>
+<li>Do Not Track</li>
+<li>Cache-Control</li>
+<li>Transfer-Encoding</li>
+<li>ETag</li>
+<li>X-Frame-Options</li>
+</ul>
+</li>
+<li>什么是 HTTP method？请罗列出你所知道的所有 HTTP method，并给出解释。</li>
+</ul>
+<h4 id="代码相关的问题："><a href="#代码相关的问题：" class="headerlink" title="代码相关的问题："></a><a name="coding-questions">代码相关的问题：</a></h4><p><em>问题：<code>foo</code>的值是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span> + <span class="string">'20'</span>;</div></pre></td></tr></table></figure></p>
+<p><em>问题：如何实现以下函数？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">add(<span class="number">2</span>, <span class="number">5</span>); <span class="comment">// 7</span></div><div class="line">add(<span class="number">2</span>)(<span class="number">5</span>); <span class="comment">// 7</span></div></pre></td></tr></table></figure></p>
+<p><em>问题：下面的语句的返回值是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"i'm a lasagna hog"</span>.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</div></pre></td></tr></table></figure></p>
+<p><em>问题：<code>window.foo</code>的值是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">( <span class="built_in">window</span>.foo || ( <span class="built_in">window</span>.foo = <span class="string">"bar"</span> ) );</div></pre></td></tr></table></figure></p>
+<p><em>问题：下面两个 alert 的结果是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="string">"Hello"</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> bar = <span class="string">" World"</span>;</div><div class="line">  alert(foo + bar);</div><div class="line">&#125;)();</div><div class="line">alert(foo + bar);</div></pre></td></tr></table></figure></p>
+<p><em>问题：<code>foo.length</code>的值是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = [];</div><div class="line">foo.push(<span class="number">1</span>);</div><div class="line">foo.push(<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<p><em>问题：<code>foo.x</code>的值是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = &#123;n: <span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = foo;</div><div class="line">foo.x = foo = &#123;n: <span class="number">2</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p><em>问题：下面代码的输出是什么？</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'one'</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'two'</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'three'</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="趣味问题："><a href="#趣味问题：" class="headerlink" title="趣味问题："></a><a name="fun-questions">趣味问题：</a></h4><ul>
+<li>你最近写过什么的很酷的项目吗？</li>
+<li>在你使用的开发工具中，最喜欢哪些方面？</li>
+<li>谁使你踏足了前端开发领域？</li>
+<li>你有什么业余项目吗？是哪种类型的？</li>
+<li>你最爱的 IE 特性是什么？</li>
+<li>你对咖啡有没有什么喜好？</li>
+</ul>
+<h4 id="贡献者："><a href="#贡献者：" class="headerlink" title="贡献者："></a><a name="contributors">贡献者：</a></h4><p>本文档始于 2009 年，是以下作者的合作成果：<a href="https://twitter.com/paul_irish" target="_blank" rel="external">@paul_irish</a> <a href="https://twitter.com/bentruyman" target="_blank" rel="external">@bentruyman</a> <a href="https://twitter.com/cowboy" target="_blank" rel="external">@cowboy</a> <a href="https://twitter.com/ajpiano" target="_blank" rel="external">@ajpiano</a> <a href="https://twitter.com/slexaxton" target="_blank" rel="external">@SlexAxton</a> <a href="https://twitter.com/boazsender" target="_blank" rel="external">@boazsender</a> <a href="https://twitter.com/miketaylr" target="_blank" rel="external">@miketaylr</a> <a href="https://twitter.com/vladikoff" target="_blank" rel="external">@vladikoff</a> <a href="https://twitter.com/gf3" target="_blank" rel="external">@gf3</a> <a href="https://twitter.com/jon_neal" target="_blank" rel="external">@jon_neal</a> <a href="https://twitter.com/sambreed" target="_blank" rel="external">@sambreed</a> 和 <a href="https://twitter.com/iansym" target="_blank" rel="external">@iansym</a>。</p>
+<p>时至今日，文档已经融入超过 <a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/graphs/contributors" target="_blank" rel="external">100 位开发者</a>的贡献。</p>
+<p><a href="https://segmentfault.com/a/1190000005127264" target="_blank" rel="external">解决你的前端面试</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/29/question/" data-id="cirx73hvg000qe2ufk5rryrku" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-imgload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/22/imgload/" class="article-date">
+  <time datetime="2016-06-22T03:15:01.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/imgload/">图片延迟加载方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图片延迟加载的原理是什么？"><a href="#图片延迟加载的原理是什么？" class="headerlink" title="图片延迟加载的原理是什么？"></a>图片延迟加载的原理是什么？</h2><p>图片延迟加载的原理就是先不设置<code>img</code>的<code>src</code>属性，等合适的时机（比如滚动、滑动等）再把图片真实<code>url</code>放到<code>img</code>的<code>src</code>属性上。</p>
+<p>过多的图片会严重影响网页的加载速度，移动网络下的流量消耗巨大，延迟加载几乎是标配。</p>
+<h2 id="图片延迟加载的使用场景有哪些？"><a href="#图片延迟加载的使用场景有哪些？" class="headerlink" title="图片延迟加载的使用场景有哪些？"></a>图片延迟加载的使用场景有哪些？</h2><p>网站首页和列表页都有很多固定宽高的图片。</p>
+<p>详情页的图片，这些图片需要自适应宽度且保持宽高比（防止页面抖动）。</p>
+<h3 id="固定宽高延迟加载"><a href="#固定宽高延迟加载" class="headerlink" title="固定宽高延迟加载"></a>固定宽高延迟加载</h3><p>这个比较简单，设置好固定宽高，直接使用最简单的延迟加载即可<br>淘宝mobile首页的延迟加载有个点做得特别好，滚动结束后只加载当前视窗可见的图片，不会加载滚动超过视窗的图片，也不会加载还没滚动到的视窗图片。</p>
+<h3 id="非固定宽高的延迟加载"><a href="#非固定宽高的延迟加载" class="headerlink" title="非固定宽高的延迟加载"></a>非固定宽高的延迟加载</h3><p>目前大概有两种方案，各有优劣，具体看情况使用：</p>
+<p>第一种方案使用padding-top或者padding-bottom来实现固定宽高比。优点是纯css方案，缺点是html冗余，对输出到第三方不友好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;padding-top:75%&quot;&gt;</div><div class="line">    &lt;img data-src=&quot;&quot; alt=&quot;&quot; class=&quot;lazyload&quot;&gt;</div><div class="line">&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>第二种方案在页面初始化阶段利用ratio设置实际宽高值，优点是html干净，对输出到第三方友好，缺点是依赖js，理论上会至少抖动一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img data-src=&quot;&quot; alt=&quot;&quot; class=&quot;lazyload&quot; data-ratio=&quot;0.75&quot;&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="更进一步结合srcset"><a href="#更进一步结合srcset" class="headerlink" title="更进一步结合srcset"></a>更进一步结合srcset</h3><p>除了上面说的延迟加载，我们可以更进一步的引入srcset，通过设置srcset来保证加载最匹配的图片，这样对于一倍屏，二倍屏，三倍屏来说，可以做到不浪费流量且效果最好。</p>
+<h2 id="都有哪些延迟加载开源方案？"><a href="#都有哪些延迟加载开源方案？" class="headerlink" title="都有哪些延迟加载开源方案？"></a>都有哪些延迟加载开源方案？</h2><p><a href="https://github.com/tuupola/jquery_lazyload" target="_blank" rel="external">jquery_lazyload</a>  依赖于jquery</p>
+<p><a href="https://github.com/aFarkas/lazysizes" target="_blank" rel="external">lazysizes 推荐</a></p>
+<ol>
+<li>原生js，不依赖于jquery/zepto</li>
+<li>自动监测可能发生变化的lazyload节点，不需要额外初始化</li>
+<li>支持响应式图片srcset</li>
+<li>性能高，改善SEO</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 引入js文件</div><div class="line">&lt;script src=&quot;lazysizes.min.js&quot; async=&quot;&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">// 非响应式 例子</div><div class="line">&lt;img data-src=&quot;image.jpg&quot; class=&quot;lazyload&quot; /&gt;</div><div class="line">// 响应式 例子，自动计算合适的图片</div><div class="line">&lt;img</div><div class="line">    data-sizes=&quot;auto&quot;</div><div class="line">    data-src=&quot;image2.jpg&quot;</div><div class="line">    data-srcset=&quot;image1.jpg 300w,</div><div class="line">    image2.jpg 600w,</div><div class="line">    image3.jpg 900w&quot; class=&quot;lazyload&quot; /&gt;</div><div class="line">// iframe 例子</div><div class="line">&lt;iframe frameborder=&quot;0&quot;</div><div class="line">    class=&quot;lazyload&quot;</div><div class="line">    allowfullscreen=&quot;&quot;</div><div class="line">    data-src=&quot;//www.youtube.com/embed/ZfV-aYdU4uE&quot;&gt;</div><div class="line">&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/jieyou/lazyload" target="_blank" rel="external">lazyload</a>  依赖jquery/zepto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 直接赋予图片宽高 --&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;</div><div class="line">&lt;!-- 或：通过css赋予图片宽高 --&gt;</div><div class="line">&lt;style&gt;</div><div class="line">    .lazy&#123;width:640px;height:480px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot;&gt;</div><div class="line">&lt;!-- 或：自适应宽度的图片样式（常用于移动端） --&gt;</div><div class="line">&lt;style&gt;</div><div class="line">    .lazy&#123;width:100%;height:0;padding-top:75%;background-size:100%;&#125;</div><div class="line">    /* 假设高宽比为 480:640，即75%，并使用背景图的方式将图片铺在padding-top区域内</div><div class="line">    （padding的百分比是宽度的百分比而不是高度的，即使是padding-top|padding-bottom） */</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div class=&quot;lazy&quot; data-original=&quot;img/example.jpg&quot;&gt;&lt;div&gt;</div><div class="line">&lt;!-- 请参阅examples/enabled_image_full_width.html --&gt;</div><div class="line">&lt;!-- 初始化 --&gt;</div><div class="line">$(&quot;.lazy&quot;).lazyload();</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/22/imgload/" data-id="cirx73huy000ie2ufo8j8s40r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html5-localstorage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/17/html5-localstorage/" class="article-date">
+  <time datetime="2016-06-17T03:56:41.000Z" itemprop="datePublished">2016-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/17/html5-localstorage/">html5 动态存储 localStorage.name 和localStorage.setItem()的差别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><code>localStorage.name=&#39;Jone&#39;</code>和<code>localStorage.setItem(&quot;name&quot;,&quot;Jone&quot;)</code>都是和<code>h5</code>本地存储的方法，第一个就不用说了，直接把值赋给<code>name</code>字段，主要是说说第二个，第二个也是里面有两个参数，第一个是字段名，第二个是值，他和第一个的差别就在于他能动态存储数据，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)</div><div class="line">&#123;</div><div class="line">    localStorage.setItem(i,i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">结果是： key          value</div><div class="line">        0             0</div><div class="line">        1             1</div><div class="line">        ...          ...</div><div class="line">        4             4</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)</div><div class="line">&#123;</div><div class="line">    localStorage.i=i;</div><div class="line">&#125;</div><div class="line">结果是：    key         value</div><div class="line">           i            4</div></pre></td></tr></table></figure>
+<p>看到区别了吧，有存储就肯定有获取的了，两种方法的获取方式分别是 <code>localStorage.i</code> 和 <code>localStorage.getItem(i)</code>;<br>ps:本地存储作用是在浏览器内的，夸浏览器获取不到</p>
+<h3 id="为什么推荐使用get-setItem"><a href="#为什么推荐使用get-setItem" class="headerlink" title="为什么推荐使用get setItem"></a>为什么推荐使用get setItem</h3><p>1.容易控制，便于动态绑定，尤其在函数抽离和重构中。比如要存一个复杂类型，每次存的时候都需要做<code>JSON.stringify(object_a)</code>，所以把它抽成函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//用dot方式来实现设值：</div><div class="line">function storage_object（object)</div><div class="line">&#123;</div><div class="line">    localStorage.object = JSON.stringify(object);</div><div class="line">&#125;</div><div class="line">//用getItem方式来实现：</div><div class="line">function storage_object (object）</div><div class="line">&#123;</div><div class="line">  localStorage.setItem(object,JSON.stringify(object));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这时候就会明显的发现用<code>dot</code>的方式是很不合适的。因为他不能实现动态的绑定<code>key</code>。</p>
+<p>2.感觉用getItem更美观，容易读懂。</p>
+<p>实现计数:(不易懂)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">locatStorage.count++</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/17/html5-localstorage/" data-id="cirx73huq000fe2ufqe2vlh2l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jsforin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/12/jsforin/" class="article-date">
+  <time datetime="2016-06-12T04:18:51.000Z" itemprop="datePublished">2016-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/12/jsforin/">js的for in 循环兼容问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Chrome-Opera-中-for-in-语句遍历出对象属性的顺序与定义的不同"><a href="#Chrome-Opera-中-for-in-语句遍历出对象属性的顺序与定义的不同" class="headerlink" title="Chrome Opera 中 for-in 语句遍历出对象属性的顺序与定义的不同"></a>Chrome Opera 中 for-in 语句遍历出对象属性的顺序与定义的不同</h3><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="http://w3help.org/zh-cn/causes/SJ9011#" target="_blank" rel="external">http://w3help.org/zh-cn/causes/SJ9011</a></p>
+<h4 id="标准参考"><a href="#标准参考" class="headerlink" title="标准参考"></a>标准参考</h4><p>根据 <code>ECMA-262（ECMAScript）</code>第三版中描述，<code>for-in</code> 语句的属性遍历的顺序是由对象定义时属性的书写顺序决定的。</p>
+<p>关于 <code>ECMA-262（ECMAScript</code> 第三版中 <code>for-in</code> 语句的更多信息，请参考 <a href="http://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf" target="_blank" rel="external">ECMA-262 3rd Edition</a> 中 <code>12.6.4 The for-in Statement</code>。</p>
+<p>在现有最新的 <code>ECMA-262（ECMAScript</code>）第五版规范中，对 <code>for-in</code> 语句的遍历机制又做了调整，属性遍历的顺序是没有被规定的。</p>
+<p>关于 <code>ECMA-262（ECMAScript）</code> 第五版中 <code>for-in</code> 语句的更多信息，请参考 <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf" target="_blank" rel="external">ECMA-262 5rd Edition</a> 中 <code>12.6.4 The for-in Statement</code>。</p>
+<p>新版本中的属性遍历顺序说明与早期版本不同，这将导致遵循 <code>ECMA-262</code> 第三版规范内容实现的 <code>JavaScript</code> 解析引擎在处理 <code>for-in</code> 语句时，与遵循第五版规范实现的解析引擎，对属性的遍历顺序存在不一致的问题。</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p><code>Chrome</code> <code>Opera</code> 中使用 <code>for-in</code> 语句遍历对象的属性时，遍历出的属性顺序与对象定义时不同。</p>
+<h3 id="造成的影响"><a href="#造成的影响" class="headerlink" title="造成的影响"></a>造成的影响</h3><p>在使用了 <code>for-in</code> 遍历对象属性，并且依赖属性顺序的脚本中，该问题可能造成脚本报错，功能失效。</p>
+<h3 id="受影响的浏览器"><a href="#受影响的浏览器" class="headerlink" title="受影响的浏览器"></a>受影响的浏览器</h3><p><code>Chrome</code> <code>Opera</code></p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p><code>Chrome</code> <code>Opera</code> 中使用 <code>for-in</code> 语句遍历对象属性时会遵循一个规律，它们会先提取所有 <code>key</code> 的 <code>parseFloat</code> 值为非负整数的属性， 然后根据数字顺序对属性排序首先遍历出来，然后按照对象定义的顺序遍历余下的所有属性。其它浏览器则完全按照对象定义的顺序遍历属性。</p>
+<p>分析以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  window.onload = function()&#123;</div><div class="line">    var obj = &#123;</div><div class="line">      city: &quot;Beijing&quot;,</div><div class="line">      12: 12,</div><div class="line">      7: 7,</div><div class="line">      0: 0,</div><div class="line">      &quot;-2&quot;: -2,</div><div class="line">      &quot;age&quot;: 15,</div><div class="line">      &quot;-3.5&quot;: -3.5,</div><div class="line">      7.7: 7.7,</div><div class="line">      _: &quot;___&quot;,</div><div class="line">      online: true,</div><div class="line">      3: 3,</div><div class="line">      &quot;23&quot;: &quot;23&quot;,</div><div class="line">      &quot;44&quot;: 44</div><div class="line">    &#125;,</div><div class="line">    info = document.getElementById(&quot;info&quot;), key;</div><div class="line"></div><div class="line">    for(key in obj)&#123;</div><div class="line">      info.innerHTML += key + &quot; : &quot; + obj[key] + &quot;&lt;br/&gt;&quot;;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;div id=&quot;info&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>以上代码测试了对象属性 <code>key</code> 为正负整数及小数、字符串和符号的情况下 <code>for-in</code> 语句遍历的顺序。执行代码，各浏览器中表现如下：</p>
+<p><img src="/blog/img/jsforin.png" alt=""></p>
+<p>经测试该问题与文档模式、属性 <code>value</code> 的数据类型以及对象是否是直接量创建的无关。</p>
+<p>可见，<code>Chrome</code> <code>Opera</code> 的 <code>JavaScript</code> 解析引擎遵循的是新版 <code>ECMA-262</code> 第五版规范。因此，使用 <code>for-in</code> 语句遍历对象属性时遍历书序并非属性构建顺序。而 <code>IE6</code> <code>IE7</code> <code>IE8</code> <code>Firefox</code> <code>Safari</code> 的 <code>JavaScript</code> 解析引擎遵循的是较老的 <code>ECMA-262</code> 第三版规范，属性遍历顺序由属性构建的顺序决定(IE6 IE7 IE8 Firefox Safari 浏览器的 JavaScript 解析引擎完成时间早于 ECMA-262 第五版规范发布时间，他们均遵守第三版规范，这无可厚非)。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><code>for-in</code> 语句无法保证遍历顺序，应尽量避免编写依赖对象属性顺序的代码。如果想顺序遍历一组数据，请使用数组并使用 <code>for</code> 语句遍历。 如果想按照定义的次序遍历对象属性，请参考本文针对各浏览器编写特殊代码。</p>
+<h2 id="各浏览器中用-for-in-可以遍历对象中被更新的内置方法存在差异"><a href="#各浏览器中用-for-in-可以遍历对象中被更新的内置方法存在差异" class="headerlink" title="各浏览器中用 for in 可以遍历对象中被更新的内置方法存在差异"></a>各浏览器中用 for in 可以遍历对象中被更新的内置方法存在差异</h2><h3 id="原文链接-1"><a href="#原文链接-1" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="http://w3help.org/zh-cn/causes/SJ5003" target="_blank" rel="external">http://w3help.org/zh-cn/causes/SJ5003</a></p>
+<h3 id="标准参考-1"><a href="#标准参考-1" class="headerlink" title="标准参考"></a>标准参考</h3><p>在 <code>ECMAScript</code> 中，原生对象的 <code>prototype</code> 中的预置 <code>property</code> 是不会被遍历出来的，因为这些 <code>property</code> 的 <code>[[Enumerable]]`` 属性都为</code>false`。</p>
+<p>关于 <code>Property Attributes</code> 请参考 <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf" target="_blank" rel="external">ECMAScript 规范</a> <code>8.6.1 Property Attributes</code> 中的内容。</p>
+<p>关于 <code>for...in</code> 语法的说明请参考 <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf" target="_blank" rel="external">ECMAScript 规范</a> <code>12.6.4 The for-in Statement</code> 中的内容。</p>
+<p>关于 <code>Function Prototype Object</code> 的说明请参考 <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf" target="_blank" rel="external">ECMAScript 规范</a> <code>15.3.4 Properties of the Function Prototype Object</code> 中的内容。</p>
+<h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>改变 <code>Date</code>、<code>Array</code> 或 <code>String</code> 等对象的原型对象中的属性或方法的引用后，再用 <code>for in</code> 遍历一个 <code>Date</code>、<code>Array</code> 或 <code>String</code> 对象时，在 <code>Safari</code> <code>Chrome</code> 中可以遍历出这个修改过的属性或方法名。</p>
+<h3 id="造成的影响-1"><a href="#造成的影响-1" class="headerlink" title="造成的影响"></a>造成的影响</h3><p>代码执行在各浏览器下效果可能不一致。</p>
+<h3 id="受影响的浏览器-1"><a href="#受影响的浏览器-1" class="headerlink" title="受影响的浏览器"></a>受影响的浏览器</h3><p><code>Chrome</code> <code>Safari</code></p>
+<h3 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h3><p>分析以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.prototype.pop=function()&#123;&#125;;</div><div class="line">var a=[];</div><div class="line">for(var i in a)document.write(i,&quot; &quot;);</div></pre></td></tr></table></figure></p>
+<p>各浏览器表现如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE Firefox Oprea</th>
+<th>Chrome Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array.prototype</td>
+<td>无内容</td>
+<td>pop</td>
+</tr>
+</tbody>
+</table>
+<p>本例中，<code>Array.prototype.pop</code> 被重指向为一个新的函数，在这种情况下，仅在 <code>Chrome</code> <code>Safari</code> 中，<code>pop</code> 也将被遍历出来。</p>
+<p>将 <code>Array</code> 替换为 <code>Date</code> <code>String</code> 对象后，分别修改它们的属性或方法名，这个修改过的属性或方法名也将被遍历出来。此外，如果覆盖 <code>Math</code> 对象的内置方法，也同样会被遍历，具体可看测试用例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">String.prototype.charCodeAt = function()&#123;&#125;;</div><div class="line">var s = &apos;&apos;;</div><div class="line">document.writeln(&apos;&lt;p style=&quot;background:#CCC&quot; &gt;for in String :&lt;/p&gt;&apos;);</div><div class="line">for(var i in s)</div><div class="line">  document.write(i, &apos; &apos;);</div><div class="line"></div><div class="line">Date.prototype.getFullYear = function()&#123;&#125;;</div><div class="line">var d = new Date();</div><div class="line">document.writeln(&apos;&lt;p style=&quot;background:#CCC&quot; &gt;for in Date :&lt;/p&gt;&apos;);</div><div class="line">for(var i in d)</div><div class="line">  document.write(i, &apos; &apos;);</div></pre></td></tr></table></figure></p>
+<p>各浏览器表现如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE Firefox Oprea</th>
+<th>Chrome Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date.prototype</td>
+<td>无内容</td>
+<td>getFullYear</td>
+</tr>
+<tr>
+<td>String.prototype</td>
+<td>无内容</td>
+<td>charCodeAt</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>无内容</td>
+<td>abs</td>
+</tr>
+</tbody>
+</table>
+<p>但是，如果覆盖 <code>Object Number</code> 对象原型中的 <code>toString</code> <code>valueOf</code> 内置方法则不会被遍历，如下例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Number.prototype.valueOf = function()&#123;&#125;</div><div class="line">Number.prototype.toString = function()&#123;&#125;</div><div class="line">var n = new Number(1);</div><div class="line">document.writeln(&apos;&lt;p style=&quot;background:#CCC&quot; &gt;for in Number :&lt;/p&gt;&apos;);</div><div class="line">for(var i in n)</div><div class="line">  document.write(i, &apos; &apos;);</div><div class="line"></div><div class="line">Object.prototype.valueOf = function()&#123;&#125;;</div><div class="line">Object.prototype.toString = function()&#123;&#125;;</div><div class="line">var o = new Object();</div><div class="line">document.writeln(&apos;&lt;p style=&quot;background:#CCC&quot; &gt;for in Object :&lt;/p&gt;&apos;);</div><div class="line">for(var i in o)</div><div class="line">  document.write(i, &apos; &apos;);</div></pre></td></tr></table></figure></p>
+<p>各浏览器表现如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>所有浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number.prototype.toString</td>
+<td>不可被遍历</td>
+</tr>
+<tr>
+<td>Number.prototype.valueOf</td>
+<td>不可被遍历</td>
+</tr>
+<tr>
+<td>Object.prototype.toString</td>
+<td>不可被遍历</td>
+</tr>
+<tr>
+<td>Object.prototype.valueOf</td>
+<td>不可被遍历</td>
+</tr>
+</tbody>
+</table>
+<p>此外还有特殊情况存在，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">document.writeln(&apos;&lt;p style=&quot;background:#CCC&quot; &gt;for in Function :&lt;/p&gt;&apos;);  </div><div class="line">document.writeln(&apos;Function.prototype.valueOf is:&apos;, Function.prototype.valueOf ? true : false);</div><div class="line">Function.prototype.valueOf = function() &#123;&#125;;</div><div class="line">Function.prototype.toString = function() &#123;&#125;;</div><div class="line">var f = function()&#123;&#125;;</div><div class="line">for(var i in f)</div><div class="line">  document.write(i, &apos; &apos;);</div></pre></td></tr></table></figure></p>
+<p>各浏览器表现如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE6 IE7 IE8</th>
+<th>Chrome Safari Firefox IE9 Beta</th>
+<th>Oprea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Function.prototype.valueOf</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Function.prototype</td>
+<td>无内容输出</td>
+<td>valueOf</td>
+<td>prototype valueOf</td>
+</tr>
+</tbody>
+</table>
+<p>【注】：Function.prototype 并不是一个 javaScript 中指的 object。ECMAScript 中规定了 Function.prototype 需要存在 [[Call]] 内部方法，并且需要实现 call 和 apply 两种 JavaScript 方法。因此，从 JavaScript 语言层面来看， Function.prototype 实质上是个 function 而非 object。</p>
+<p>根据 <code>ECMAScript 5th</code> 以及 <code>ECMAScript 3th</code> 中描述，<code>Function.prototype</code> 内没有规定实现 <code>valueOf</code> 方法。但是测试结果证明，所有浏览器都实现了他。但由于这种实现为非标准的，<code>Chrome</code> <code>Safari</code> <code>Firefox</code> <code>Opera</code> <code>IE9 Beta</code> 都没有强制保护这个 <code>valueOf</code> 方法不被枚举。<code>valueOf</code> 原生方法中自带 <code>[[Enumerable]]</code> 属性与原始设定值，由于覆盖这个方法的的新函数并不具备内置的 <code>[[Enumerable]]</code> 属性，导致他可被遍历。<code>Opera</code> 的情况更为特殊，<code>Function.prototype</code> 被修改或扩充后，<code>prototype</code> 对象的 <code>[[Enumerable]]</code> 属性丢失或其值或被修改为 <code>true</code>，使得他也被枚举出来。</p>
+<p>另外，<code>Function.prototype</code> 的 <code>toString</code> 方法被覆盖后依然无法被枚举，这证明了这个方法被做了特殊处理，即使被覆盖，其原始的 <code>[[Enumerable]]</code> 属性值依然不变。</p>
+<p>综上所有情况可见：</p>
+<ol>
+<li>在 Chrome Safari 浏览器的脚本引擎实现中，原生方法自带 [[Enumerable]] 属性与原始设定值，由于覆盖内置方法的的新函数并不具备内置的 [[Enumerable]] 属性，导致他们可被枚举。</li>
+<li>而 IE6 IE7 IE8 Opera 中，可能是将 [[Enumerable]] 属性是与原生方法名放置在对照表内，同名新方法覆盖老方法后，检查对照表后，同名新方法的 [[Enumerable]] 属性值不变，因此依然无法被枚举。</li>
+<li>Function.prototype 的情况较为特殊，所有浏览器中均实现了原生的 valueOf 方法，并且在他被覆盖后 [[Enumerable]] 属性值丢失，变得可被枚举。这说明 IE6 IE7 IE8 Opera 中，此原生方法并未放置在可能的存在的对照标表中，而是使用如同 Chrome Safari 机制来处理。</li>
+<li>所有浏览器中，对于位于 Object 与 Number 原型对象上的 toString 和 valueOf 内置方法都做了特殊处理，即使被原生方法被覆盖，其 [[Enumerable]] 属性值依然不变，无法被枚举。</li>
+<li>Opera 中，当 Function.prototype 被修改或者扩充后，prototype 原始的 [[Enumerable]] 属性丢失或其值或被修改为 true，使他变得可被枚举。</li>
+</ol>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>对于数组，避免用 <code>for...in</code> 方式而采用索引即数字下标的形式枚举数组成员。</p>
+<p>对于 <code>Date</code> <code>String</code> 以及其他对象，没有必要使用 <code>for...in</code> 来枚举它们的成员，因此一般不会有兼容性问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/12/jsforin/" data-id="cirx73hv8000ne2ufuibv0jqp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,6 +798,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -197,7 +818,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -210,15 +831,23 @@
       <ul>
         
           <li>
-            <a href="/2016/08/12/test2/">test2</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/12/test/">test</a>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
           </li>
         
           <li>
             <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
           </li>
         
       </ul>

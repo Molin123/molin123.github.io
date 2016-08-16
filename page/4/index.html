@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-gitblog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/gitblog/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/gitblog/">如何在sae中部署GitBlog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于gitblog的介绍，<a href="http://www.gitblog.cn/" target="_blank" rel="external">官网</a>已经很详细了。由于是抱着玩一玩的心态去接触gitblog的，所以我把代码部署到了sae上（完全是因为不要钱）。下面主要介绍一下在sae上面使用gitblog的步骤，以及可能会遇到的问题。</p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>在sae上面创建一个php的空应用</li>
+<li>进入代码管理，选择是用git管理代码（个人习惯）</li>
+<li><p>进入文件夹，执行 <figure class="highlight plain"><figcaption><span>init```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 在应用的git代码目录里，添加一个新的git远程仓库 sae ```$ git remote add sae https://git.sinacloud.com/应用名</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>去<a href="https://github.com/jockchou/gitblog" target="_blank" rel="external">github</a>下载gitblog源码</p>
+</li>
+<li>将gitblog源码拷贝到项目目录</li>
+<li><p>在项目根目录中新建sae配置文件config.yaml，拷贝如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">name: gitblogdoc</div><div class="line">version: 1</div><div class="line">handle:</div><div class="line">    - rewrite: if(!is_dir() &amp;&amp; !is_file() &amp;&amp; path ~ &quot;/&quot;) goto &quot;/index.php?&#123;QUERY_STRING&#125;&quot;</div><div class="line">    - rewrite: if (%&#123;REQUEST_URI&#125; ~ &quot;md$&quot;) goto &quot;http://me.molinblog.com$1 [L,QSA,R=301]&quot;   // 如果不想让别人访问你的md文件，可以加上这行</div></pre></td></tr></table></figure>
+</li>
+<li><p>将代码部署到 <figure class="highlight plain"><figcaption><span>的版本1。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">$ git add .</div><div class="line">$ git commit -am &quot;make it better&quot;</div><div class="line">$ git push sae master:1</div></pre></td></tr></table></figure></p>
+<p> （sae中的git和我们平常使用的略有不同）</p>
+</li>
+</ol>
+<p>按照以上步骤完成后就可以访问博客了</p>
+<h4 id="可能会遇到的问题"><a href="#可能会遇到的问题" class="headerlink" title="可能会遇到的问题"></a>可能会遇到的问题</h4><p>除了首页以外其他的页面都无法访问？<br>可以将example-conf.yaml拷贝到conf.yaml中，并把第7行代码设置为<code>enableCache     : false</code> 关闭缓存</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/gitblog/" data-id="cirx73huf000ae2ufbyxt78o4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-commonreg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/commonreg/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/commonreg/">常用正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var REG_MOBILE = /^0?(13|14|15|17|18)[0-9]&#123;9&#125;$/ ;</div><div class="line">var REG_PWD = /(?=^.&#123;8,20&#125;$)(?=(?:.*?\d)&#123;1&#125;)(?=(?:.*?[a-zA-Z])&#123;1&#125;)(?!.*\s)[0-9a-zA-Z!@#$%*()_\-`:;&quot;&apos;,.\/&#123;&#125;\[\]+=^&amp;&lt;&gt;?~^]*$/;</div><div class="line">var REG_PWD =  /^(?![^a-zA-Z]+$)(?!\D+$).&#123;6,18&#125;$/; //6-18位字母加数字</div><div class="line">var REG_IMG_CODE = /[0-9A-Za-z]&#123;4&#125;/;</div><div class="line">var REG_PHONE_CODE = /[0-9]&#123;6&#125;/;</div><div class="line">var REG_BANK_CARD = /^\d&#123;10,25&#125;$/;</div><div class="line">var REG_BODY_CARD =/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/;</div><div class="line">var REG_NUMBER = /^(-?\d+)(\.\d+)?$/;</div><div class="line">var REG_URL = /[a-zA-z]+:\/\/[^\s]*/;</div><div class="line">var REG_IP = /((2[0-4]\d|25[0-5]|[01]?\d\d?)\.)&#123;3&#125;(2[0-4]\d|25[0-5]|[01]?\d\d?)/;</div><div class="line">var REG_CHINESE = /[\u4e00-\u9fa5]/;</div><div class="line">var REG_EMAIL = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;</div><div class="line">var REG_NAME = /^([\u4e00-\u9fa5]|·)&#123;2,15&#125;$/;</div></pre></td></tr></table></figure>
+<p>一个正则线上验证<a href="http://refiddle.com/" target="_blank" rel="external">网站</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/commonreg/" data-id="cirx73hts0002e2uf7e3r78wu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-combination-inheritance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/combination-inheritance/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/combination-inheritance/">javascript中的继承方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>组合继承，有时候也叫作伪经典继承，指的是将原型链和借用构造函数的技术组合到一起，<br>从而发挥二者之长的一种继承模式。其背后的思想是使用原型链实现对原型属性和方法的继承，<br>而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，<br>又能够保证每个实例都有它自己的属性。来看下面一个例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function Supertype (name) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.color = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType (name, age) &#123; //借用构造函数</div><div class="line">    //继承属性</div><div class="line">    SuperType.call(this, name);</div><div class="line"></div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">//继承方法（原型链）</div><div class="line">SubType.prototype = new SuperType();</div><div class="line">SubType.prototype.constructor = SubType;</div><div class="line">SubType.prototype.sayAge = function()&#123;</div><div class="line">    alert(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new SubType(&quot;Nicholas&quot;, 29);</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);        //&quot;red,blue,green,black&quot;</div><div class="line">instance1.sayName();            //&quot;Nicholas&quot;</div><div class="line">instance1.sayAge();             //29</div><div class="line"></div><div class="line">var instance2 = new SubType(&quot;Greg&quot;, 27);</div><div class="line">alert(instance2.colors);        //&quot;red,blue,green&quot;</div><div class="line">instance2.sayName();            //&quot;Greg&quot;</div><div class="line">instance2.sayAge();             //27</div></pre></td></tr></table></figure></p>
+<p>在这个例子中，SuperType 构造函数定义了两个属性：name和colors。SuperType的原型<br>定义了一个方法sayName()。SubType构造函数在调用SuperType构造函数时传入了name参数，<br>紧接着又定义了它自己的属性age。然后，将SuperType的实例赋值给SubType的原型，<br>然后又在该新原型上定义了方法sayAge()。这样一来，就可以让两个不同的SubType实例<br>既分别拥有自己属性——包括colors属性，又可以使用相同的方法了。</p>
+<p>组合继承避免了原型链和借用构造函数的缺陷，融合了他们的优点，成为JavaScript中最常用的继承模式。<br>而且，instanceof和isPrototype()也能够用于识别基于组合继承常见的对象。</p>
+<h4 id="原型链继承的问题"><a href="#原型链继承的问题" class="headerlink" title="原型链继承的问题"></a>原型链继承的问题</h4><p>原型链虽然强大，可以用它来实现继承，但它也存在一些问题。其中，最重要的问题来自包含引用类型值的原型。想必大家还记得，我们前面介绍过包含引用类型值的原型属性会被所有实例共享；而这也正是为什么要在构造函数中，而不是在原型对象中定义属性的原因。在通过原型来实现继承时，原型实际上会变成另一个类型的实例。于是，原先的实例属性也就顺理成章地变成现在的原型属性了。下面的代码可以用来说明这个问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function SuperType () &#123;</div><div class="line">    this.colors = [&quot;red&quot;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">function subType ()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//继承了SuperType</div><div class="line">SubType.prototype = new SuperType();</div><div class="line"></div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);            //&quot;red,blue,green,black&quot;</div><div class="line"></div><div class="line">var instance2 = new SubType();</div><div class="line">alert(instance2.colors);            //&quot;red,blue,green,black&quot;</div></pre></td></tr></table></figure></p>
+<p>这个例子中的SuperType构造函数定义了一个colors属性，该属性包含一个数组（引用类型值）。SuperType的每个实例都会有个字包含自己数组的colors属性。当SubType通过原型链继承了SuperType之后，SubType.prototype就变成了SuperType的一个实例，因此它也拥有了一个它自己的colors属性——就跟专门创建一个SubType.prototype.colors属性一样。但结果是什么呢？结果是SubType的所有实例都会共享一个colors属性。而我们对instance1.colors的修改能够通过instance2.colors反应出来，就已经充分验证了这一点。</p>
+<p>原型链的第二个问题是：在创建子类型的实例时，不能向超类型的构造函数中传递参数。实际上，应该说是没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。有鉴于此，再加上前面刚刚讨论过的由于原型中包含引用类型值所带来的问题，实践中很少会单独使用原型链。</p>
+<h4 id="借用构造函数的问题"><a href="#借用构造函数的问题" class="headerlink" title="借用构造函数的问题"></a>借用构造函数的问题</h4><p>在解决原型中包含引用类型值所带来的问题的过程中，开发人员开始使用一种叫做借用鼓噪函数的技术（有时候也叫作伪构造对象或经典继承）。这种技术的基本思想相当简单，即在子类型构造函数的内部调用超类型构造函数。别忘了，函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在（将来）新创建的对象上执行构造函数，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function SuperType ()&#123;</div><div class="line">    this.colors = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">function SubType ()&#123;</div><div class="line">    //继承了SuperType</div><div class="line">    SuperType.call(this); //1</div><div class="line">&#125;</div><div class="line">var instance1 = new Subtype();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);          //&quot;red,blue,green,black&quot;</div><div class="line"></div><div class="line">var instance2 = new SubType();</div><div class="line">alert(instance2.colors);          //&apos;red,blue,green&apos;</div></pre></td></tr></table></figure></p>
+<p>代码中1“借调”了超类型的构造函数。通过使用call()方法（或apply()方法也可以），我们实际上是在（未来将要）新创建的SubType实例的环境下调用了SuperType构造函数。这样一来，就会在新SubType对象上执行SuperType函数中定义的所有对象初始化代码。结果，SubType的每个实例都会具有自己的colors属性的副本了。</p>
+<h6 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h6><p>相对于原型链而言，借用构造函数有一个很大的有时候，即可以在子类型构造函数中向超类型构造函数传递参数。看下面的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function SuperType (name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">function SubType ()&#123;</div><div class="line">    //继承了SuperType，同时还传递了参数</div><div class="line">    SuperType.call(this, &quot;Nicholas&quot;);</div><div class="line"></div><div class="line">    //实例属性</div><div class="line">    this.age = 29;</div><div class="line">&#125;</div><div class="line">var instance = new SubType();</div><div class="line">alert(instance.name);          //&quot;Nicholas&quot;</div><div class="line">alert(insatnce.age);           //29</div></pre></td></tr></table></figure></p>
+<p>以上代码中的SuperType只接受一个参数name，该参数会直接赋给一个属性。在SubType构造函数内部调用SuperType构造函数时，实际上是为Subtype的实例设置了name属性。为了确保SuperType构造函数不会重写子类型的属性，可以在调用超类型构造函数后，再添加应该在子类型中定义的属性。</p>
+<h6 id="借用构造函数的问题-1"><a href="#借用构造函数的问题-1" class="headerlink" title="借用构造函数的问题"></a>借用构造函数的问题</h6><p>如果仅仅是借用构造函数，那么将无法避免构造函数存在的问题——方法都在构造函数中定义，因此函数复用就无从谈起了。而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有子类型都只能使用构造函数模式。考虑到这些问题，借用构造函数的技术也是很少单独使用的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/combination-inheritance/" data-id="cirx73htv0003e2ufnt85s5v6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-welcome" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/welcome/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/welcome/">欢迎使用GitBlog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-简介"><a href="#一-简介" class="headerlink" title="一. 简介"></a>一. 简介</h2><p>GitBlog是一个简单易用的Markdown博客系统，它不需要数据库，没有管理后台功能，更新博客只需要添加你写好的Markdown文件即可。它摆脱了在线编辑器排版困难，无法实时预览的缺点，一切都交给Markdown来完成，一篇博客就是一个Markdown文件。同时也支持评论，代码高亮，数学公式，页面PV统计等常用功能。GitBlog提供了不同的主题样式，你可以根据自己的喜好配置，如果你想自己制作博客主题，也是非常容易的。GitBlog还支持整站静态导出，你完全可以导出整站静态网页部署到Github Pages。</p>
+<h2 id="二-功能特点"><a href="#二-功能特点" class="headerlink" title="二. 功能特点"></a>二. 功能特点</h2><ol>
+<li>使用Markdown  </li>
+<li>评论框  </li>
+<li>代码高亮  </li>
+<li>PV统计  </li>
+<li>Latex数学公式  </li>
+<li>自制主题  </li>
+<li>响应式  </li>
+<li>全站静态导出  </li>
+<li>良好的SEO  </li>
+</ol>
+<h2 id="三-GitBlog优势"><a href="#三-GitBlog优势" class="headerlink" title="三. GitBlog优势"></a>三. GitBlog优势</h2><ol>
+<li>无需数据库，系统更轻量，移植更方便  </li>
+<li>使用Markdown编写，摆脱后台编辑排版困难，无法实时预览的缺点  </li>
+<li>可全站静态导出  </li>
+<li>配置灵活，可自由开关某些功能  </li>
+<li>多主题支持，可自制主题  </li>
+<li>博客，分类，标签，归档  </li>
+</ol>
+<h2 id="四-环境要求"><a href="#四-环境要求" class="headerlink" title="四. 环境要求"></a>四. 环境要求</h2><p>PHP 5.2.4+</p>
+<h2 id="五-安装步骤"><a href="#五-安装步骤" class="headerlink" title="五. 安装步骤"></a>五. 安装步骤</h2><ol>
+<li>下载GitBlog源代码  </li>
+<li>解压上传到你的PHP网站根目录  </li>
+<li>打开浏览器，访问网站首页  </li>
+<li>上传Markdown文件到<code>posts</code>文件夹  </li>
+</ol>
+<h2 id="六-详细说明"><a href="#六-详细说明" class="headerlink" title="六. 详细说明"></a>六. 详细说明</h2><p><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/install.html" target="_blank" rel="external">1. 安装</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/struct.html" target="_blank" rel="external">2. 目录结构</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/config.html" target="_blank" rel="external">3. 配置说明</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/edit.html" target="_blank" rel="external">4. 编写博客</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/other-func.html" target="_blank" rel="external">5. 评论，订阅，统计等</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/cache.html" target="_blank" rel="external">6. 缓存机制</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/export.html" target="_blank" rel="external">7. 全站静态导出</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/theme.html" target="_blank" rel="external">8. 主题制作</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/nginx.html" target="_blank" rel="external">9. 在Nginx上运行GitBlog</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/apache.html" target="_blank" rel="external">10. 在Apache上运行GitBlog</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/sae.html" target="_blank" rel="external">11. 在SAE上运行GitBlog</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/github-pages.html" target="_blank" rel="external">12. 使用GitBlog和Github Pages搭建博客</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/update.html" target="_blank" rel="external">13. Gitblog升级</a><br><a href="http://gitblogdoc.sinaapp.com/blog/gitblog/wordpress.html" target="_blank" rel="external">14. 从wordpress导入</a></p>
+<h2 id="七-问题及bug反馈"><a href="#七-问题及bug反馈" class="headerlink" title="七. 问题及bug反馈"></a>七. 问题及bug反馈</h2><p>如果在实际使用过程中对GitBlog有新的功能需求，或者在使用GitBlog的过程中发现了Bug，欢迎反馈给我。可以直接在Github上提交，也可以发邮件至<code>164068300[AT]qq.com</code>与我取得联系，我将及时回复。如果你自己制作了漂亮好用的主题，也非常欢迎你提交给我，我会在这里展示你的主题链接。如果你正在使用GitBlog，也可以告诉我，我将也会在这里列出使用者名单。如果你想和其他GitBlog使用者讨论交流，欢迎加入QQ群<code>84692078</code>。</p>
+<h2 id="八-使用者列表"><a href="#八-使用者列表" class="headerlink" title="八. 使用者列表"></a>八. 使用者列表</h2><ul>
+<li><a href="http://blog.hiweeds.net" target="_blank" rel="external">Weeds</a></li>
+<li><a href="http://xiaochengzi.sinaapp.com" target="_blank" rel="external">橙子</a></li>
+<li><a href="http://jockchou.gitblog.cn" target="_blank" rel="external">jockchou</a></li>
+<li><a href="http://gitblogdoc.sinaapp.com" target="_blank" rel="external">GitBlog Doc</a></li>
+<li><a href="http://zxy.link" target="_blank" rel="external">zxy</a>  </li>
+</ul>
+<h2 id="九-感谢"><a href="#九-感谢" class="headerlink" title="九. 感谢"></a>九. 感谢</h2><p>GitBlog的成长需要喜欢Markdown，喜欢写博客的各位亲们支持！感谢你们使用GitBlog，感激你们对Gitblog的良好建议与Bug反馈。</p>
+<p>QQ群：<code>84692078</code><br>作者邮箱：<code>164068300[AT]qq.com</code>    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/welcome/" data-id="cirx73hvv000xe2ufkfubyxxf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-create-object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/create-object/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/create-object/">javascript创建对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂模式是软件工程领域一种广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节，如下面的例子所示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function createPerson (name, age, job)&#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.sayName = function()&#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line">var person1 = createPerson(&quot;Nicholas&quot;, 29, &apos;Engineer&apos;);</div><div class="line">var person2 = creagePerson(&quot;Greg&quot;, 27, &apos;Doctor&apos;);</div></pre></td></tr></table></figure></p>
+<p>函数createPerson()能够根据接受的参数来构建一个包含所有必要信息的Person对象。可以无数次地调用这个函数，而每次它都会返回一个包含三个属性一个方法的对象。工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎么知道一个对象的类型）。随着JavaScript的发展，又一个新模式出现了。</p>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><p>ECMAScript中的构造函数可用来创建特定类型的对象。像Object和Array这样的原生构造函数，在运行时会自动出现在执行环境中。此外，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。例如。可以使用构造函数模式将前面例子重写如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = jb;</div><div class="line">    this.sayName = function()&#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;Nicholas&quot;, 29, &apos;Engineer&apos;);</div><div class="line">var person2 = new Person(&quot;Greg&quot;, 27, &apos;Doctor&apos;);</div><div class="line"></div><div class="line">alert(person1 instanceof Object);           //true</div><div class="line">alert(person1 instanceof Person);           //true</div><div class="line">alert(person1.constructor == Person);       //true</div><div class="line">alert(person2 instanceof Object);           //true</div><div class="line">alert(person2 instanceof Person);           //tuue</div><div class="line">alert(person2.constructor == Person);       //true</div></pre></td></tr></table></figure></p>
+<p>与工厂模式的不同：</p>
+<ol>
+<li>没有显示地创建对象；</li>
+<li>直接将属性和方法赋给了this对象；</li>
+<li>没有return语句；</li>
+<li>函数名Person使用大写字母开头。（按照惯例，构造函数要以大写字母开头）</li>
+<li>要创建Person实例，必须使用new操作符。以这种方式调用构造函数实际上会经历以下四个步骤：<ul>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象（因此this就指向了这个新对象）</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）</li>
+<li>返回新对象</li>
+</ul>
+</li>
+</ol>
+<h5 id="将构造函数当做函数"><a href="#将构造函数当做函数" class="headerlink" title="将构造函数当做函数"></a>将构造函数当做函数</h5><p>构造函数与其他函数的唯一区别，就在于调用他们的方式不同。不过，构造函数毕竟也是函数，不存在定义构造函数的特殊语法。任何函数，只要通过new操作符来调用，那它就可以作为构造函数；而任何函数，如果不通过new操作符来调用，那它跟普通函数也不会有什么两样。例如，上面例子中定义的Person()函数可以通过下列任何一种方式调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//当做构造函数使用</div><div class="line">var person = new Person(&quot;Nicholas&quot;, 29, &apos;Engineer&apos;);</div><div class="line">person.sayName();        //&quot;Nicholas&quot;</div><div class="line">//作为普通函数调用</div><div class="line">Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);   //添加到window</div><div class="line">window.sayName();         //&quot;Greg&quot;</div><div class="line">//在另一个对象的作用域中调用</div><div class="line">var o = new Object();</div><div class="line">Person.call(o, &quot;Kristen&quot;, 25, &quot;Nurse&quot;);</div><div class="line">o.sayName();              //&quot;Kristen&quot;</div></pre></td></tr></table></figure></p>
+<h5 id="构造函数的问题"><a href="#构造函数的问题" class="headerlink" title="构造函数的问题"></a>构造函数的问题</h5><p>使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍。在前面的例子中，person1和person2都有一个名为sayName()的方法，但那两个方法不是同一个Function的实例。不要忘了——ECMAScript中的函数是对象，因此每定义一个函数，也就是实例化了一个对象。可以通过把函数定义转移到构造函数外部来解决这个问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = jb;</div><div class="line">    this.sayName = sayName;</div><div class="line">&#125;</div><div class="line">function sayName()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;Nicholas&quot;, 29, &apos;Engineer&apos;);</div><div class="line">var person2 = new Person(&quot;Greg&quot;, 27, &apos;Doctor&apos;);</div></pre></td></tr></table></figure></p>
+<p>这样一来，由于sayName包含的是一个指向函数的指针，因此person1和person2对象就共享了在全局作用域中定义的同一个sayName()函数。这样做确实解决了两个函数做同一件事的问题，可新的问题又来了：在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。而更让人无法接受的是：如果对象需要定义很多方法，那么就要定义很多个全局函数，于是我们这个自定义的引用类型就丝毫没有封装性可言了。好在，这些问题可以通过使用原型模式来解决。</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>我们创建的每一个对象都有一个prototype属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。如果按照字面意思来解释，那么prototype就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。换句话说，不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中，如下面的例子所示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;Nicholas&quot;;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">person1.sayName();           //&quot;Nicholas&quot;</div><div class="line">var person2 = new Person();</div><div class="line">person2.sayName();           //&quot;Nicholas&quot;</div><div class="line">alert(person1.sayName == person2.sayName);      //true</div><div class="line"></div><div class="line">person1.name = &quot;Gerg&quot;;</div><div class="line">alert(person1.name);           //&quot;Greg&quot;  来自实例</div><div class="line">alert(person2.name);           //&quot;Nicholas&quot;   来自原型</div></pre></td></tr></table></figure></p>
+<p>后面的代码，当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性；换句话说，添加这个属性只会阻止我们访问原型中的那个属性，但不会修改那个属性。即使将这个属性设置为null，也只会在实例中设置这个属性，而不会恢复其指向原型的连接。不过，使用delete操作符则可以完全删除实例属性，从而让我们能够重新访问原型中的属性。</p>
+<h6 id="原型对象的问题"><a href="#原型对象的问题" class="headerlink" title="原型对象的问题"></a>原型对象的问题</h6><p>原型模式省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值。虽然这会在某种程度上带来一些不方便，但还不是原型问题的最大问题。原型模式的最大问题是由其共享的本质所导致的。</p>
+<p>原型中所有属性是被很多实例共享的，这种共享对于函数非常合适。对于那些包含基本值的属性倒也说得过去，毕竟，通过在实例上添加一个同名属性，可以隐藏原型中的对应属性。然而，对于包含引用类型值的属性来说，问题就比较突出了。来看下面的例子。</p>
+<p>看例子前先补充一点：<br>    JavaScript值类型和引用类型有哪些</p>
+<pre><code>+ 值类型：数值、布尔值、null、undefined。（占据固定大小的空间，保存在栈中）
++ 引用类型：对象、数组、函数。（保存在堆中）
++ http://www.cnblogs.com/lxq1990/archive/2012/11/04/2754226.html
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line">Person.prorotype = &#123;</div><div class="line">        constructor: Person,</div><div class="line">        name: &quot;Nicholas&quot;,</div><div class="line">        age: 29,</div><div class="line">        job: &quot;Engineer&quot;,</div><div class="line">        friend: [&apos;Tom&apos;, &apos;Jack&apos;],</div><div class="line">        sayName: function()&#123;</div><div class="line">            alert(this.name);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person();</div><div class="line">var person2 = new Person();</div><div class="line">person1.friend.push(&quot;Van&quot;);</div><div class="line">alert(person1.friend);      //&quot;Tom,Jack,Van&quot;</div><div class="line">alert(person2.friend);      //&quot;Tom,Jack,Van&quot;</div><div class="line">alert(person1.friend === person2.friend);       //true</div></pre></td></tr></table></figure>
+<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><p>创建自定义类型的最常见方法，就是组合使用构造函数模式和原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用，最大程度地节省了内存。另外，这种混成模式还支持向构造函数传递参数；可谓是集两种模式之长。下面的代码重写了前面的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.friend = [&apos;Tom&apos;, &apos;Jack&apos;];</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor: Person,</div><div class="line">    sayName: function()&#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;Nicholas&quot;, 29, &apos;Engineer&apos;);</div><div class="line">var person2 = new Person(&quot;Greg&quot;, 27, &apos;Doctor&apos;);</div><div class="line">person1.friend.push(&quot;Van&quot;);</div><div class="line">alert(person1.friend);       //&quot;Tom,Jack,Van&quot;</div><div class="line">alert(person2.friend);       //&quot;Tom,Jack&quot;</div><div class="line">alert(person1.friend === person2.friend);       //false</div><div class="line">alert(person1.sayName === person2.sayName);     //true</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/create-object/" data-id="cirx73hux000he2ufvwodexx1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

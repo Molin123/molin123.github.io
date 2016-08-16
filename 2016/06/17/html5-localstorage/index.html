@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5 动态存储 localStorage.name 和localStorage.setItem()的差别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="区别localStorage.name=&amp;#39;Jone&amp;#39;和localStorage.setItem(&amp;quot;name&amp;quot;,&amp;quot;Jone&amp;quot;)都是和h5本地存储的方法，第一个就不用说了，直接把值赋给name字段，主要是说说第二个，第二个也是里面有两个参数，第一个是字段名，第二个是值，他和第一个的差别就在于他能动态存储数据，例如：12345678910for(v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5 动态存储 localStorage.name 和localStorage.setItem()的差别">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/html5-localstorage/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="区别localStorage.name=&amp;#39;Jone&amp;#39;和localStorage.setItem(&amp;quot;name&amp;quot;,&amp;quot;Jone&amp;quot;)都是和h5本地存储的方法，第一个就不用说了，直接把值赋给name字段，主要是说说第二个，第二个也是里面有两个参数，第一个是字段名，第二个是值，他和第一个的差别就在于他能动态存储数据，例如：12345678910for(v">
+<meta property="og:updated_time" content="2016-08-16T08:11:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5 动态存储 localStorage.name 和localStorage.setItem()的差别">
+<meta name="twitter:description" content="区别localStorage.name=&amp;#39;Jone&amp;#39;和localStorage.setItem(&amp;quot;name&amp;quot;,&amp;quot;Jone&amp;quot;)都是和h5本地存储的方法，第一个就不用说了，直接把值赋给name字段，主要是说说第二个，第二个也是里面有两个参数，第一个是字段名，第二个是值，他和第一个的差别就在于他能动态存储数据，例如：12345678910for(v">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5-localstorage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/17/html5-localstorage/" class="article-date">
+  <time datetime="2016-06-17T03:56:41.000Z" itemprop="datePublished">2016-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5 动态存储 localStorage.name 和localStorage.setItem()的差别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><code>localStorage.name=&#39;Jone&#39;</code>和<code>localStorage.setItem(&quot;name&quot;,&quot;Jone&quot;)</code>都是和<code>h5</code>本地存储的方法，第一个就不用说了，直接把值赋给<code>name</code>字段，主要是说说第二个，第二个也是里面有两个参数，第一个是字段名，第二个是值，他和第一个的差别就在于他能动态存储数据，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)</div><div class="line">&#123;</div><div class="line">    localStorage.setItem(i,i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">结果是： key          value</div><div class="line">        0             0</div><div class="line">        1             1</div><div class="line">        ...          ...</div><div class="line">        4             4</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)</div><div class="line">&#123;</div><div class="line">    localStorage.i=i;</div><div class="line">&#125;</div><div class="line">结果是：    key         value</div><div class="line">           i            4</div></pre></td></tr></table></figure>
+<p>看到区别了吧，有存储就肯定有获取的了，两种方法的获取方式分别是 <code>localStorage.i</code> 和 <code>localStorage.getItem(i)</code>;<br>ps:本地存储作用是在浏览器内的，夸浏览器获取不到</p>
+<h3 id="为什么推荐使用get-setItem"><a href="#为什么推荐使用get-setItem" class="headerlink" title="为什么推荐使用get setItem"></a>为什么推荐使用get setItem</h3><p>1.容易控制，便于动态绑定，尤其在函数抽离和重构中。比如要存一个复杂类型，每次存的时候都需要做<code>JSON.stringify(object_a)</code>，所以把它抽成函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//用dot方式来实现设值：</div><div class="line">function storage_object（object)</div><div class="line">&#123;</div><div class="line">    localStorage.object = JSON.stringify(object);</div><div class="line">&#125;</div><div class="line">//用getItem方式来实现：</div><div class="line">function storage_object (object）</div><div class="line">&#123;</div><div class="line">  localStorage.setItem(object,JSON.stringify(object));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这时候就会明显的发现用<code>dot</code>的方式是很不合适的。因为他不能实现动态的绑定<code>key</code>。</p>
+<p>2.感觉用getItem更美观，容易读懂。</p>
+<p>实现计数:(不易懂)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">locatStorage.count++</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/17/html5-localstorage/" data-id="cirx73huq000fe2ufqe2vlh2l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/22/imgload/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          图片延迟加载方案
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/12/jsforin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js的for in 循环兼容问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

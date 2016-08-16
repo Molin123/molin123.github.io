@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript中的继承方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="组合继承组合继承，有时候也叫作伪经典继承，指的是将原型链和借用构造函数的技术组合到一起，从而发挥二者之长的一种继承模式。其背后的思想是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。来看下面一个例子。12345678910111213141516171819202122232425262">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript中的继承方法">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/combination-inheritance/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="组合继承组合继承，有时候也叫作伪经典继承，指的是将原型链和借用构造函数的技术组合到一起，从而发挥二者之长的一种继承模式。其背后的思想是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。来看下面一个例子。12345678910111213141516171819202122232425262">
+<meta property="og:updated_time" content="2016-08-16T08:08:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript中的继承方法">
+<meta name="twitter:description" content="组合继承组合继承，有时候也叫作伪经典继承，指的是将原型链和借用构造函数的技术组合到一起，从而发挥二者之长的一种继承模式。其背后的思想是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。来看下面一个例子。12345678910111213141516171819202122232425262">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-combination-inheritance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/03/combination-inheritance/" class="article-date">
+  <time datetime="2016-05-03T05:22:39.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript中的继承方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>组合继承，有时候也叫作伪经典继承，指的是将原型链和借用构造函数的技术组合到一起，<br>从而发挥二者之长的一种继承模式。其背后的思想是使用原型链实现对原型属性和方法的继承，<br>而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，<br>又能够保证每个实例都有它自己的属性。来看下面一个例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function Supertype (name) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.color = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function SubType (name, age) &#123; //借用构造函数</div><div class="line">    //继承属性</div><div class="line">    SuperType.call(this, name);</div><div class="line"></div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">//继承方法（原型链）</div><div class="line">SubType.prototype = new SuperType();</div><div class="line">SubType.prototype.constructor = SubType;</div><div class="line">SubType.prototype.sayAge = function()&#123;</div><div class="line">    alert(this.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new SubType(&quot;Nicholas&quot;, 29);</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);        //&quot;red,blue,green,black&quot;</div><div class="line">instance1.sayName();            //&quot;Nicholas&quot;</div><div class="line">instance1.sayAge();             //29</div><div class="line"></div><div class="line">var instance2 = new SubType(&quot;Greg&quot;, 27);</div><div class="line">alert(instance2.colors);        //&quot;red,blue,green&quot;</div><div class="line">instance2.sayName();            //&quot;Greg&quot;</div><div class="line">instance2.sayAge();             //27</div></pre></td></tr></table></figure></p>
+<p>在这个例子中，SuperType 构造函数定义了两个属性：name和colors。SuperType的原型<br>定义了一个方法sayName()。SubType构造函数在调用SuperType构造函数时传入了name参数，<br>紧接着又定义了它自己的属性age。然后，将SuperType的实例赋值给SubType的原型，<br>然后又在该新原型上定义了方法sayAge()。这样一来，就可以让两个不同的SubType实例<br>既分别拥有自己属性——包括colors属性，又可以使用相同的方法了。</p>
+<p>组合继承避免了原型链和借用构造函数的缺陷，融合了他们的优点，成为JavaScript中最常用的继承模式。<br>而且，instanceof和isPrototype()也能够用于识别基于组合继承常见的对象。</p>
+<h4 id="原型链继承的问题"><a href="#原型链继承的问题" class="headerlink" title="原型链继承的问题"></a>原型链继承的问题</h4><p>原型链虽然强大，可以用它来实现继承，但它也存在一些问题。其中，最重要的问题来自包含引用类型值的原型。想必大家还记得，我们前面介绍过包含引用类型值的原型属性会被所有实例共享；而这也正是为什么要在构造函数中，而不是在原型对象中定义属性的原因。在通过原型来实现继承时，原型实际上会变成另一个类型的实例。于是，原先的实例属性也就顺理成章地变成现在的原型属性了。下面的代码可以用来说明这个问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function SuperType () &#123;</div><div class="line">    this.colors = [&quot;red&quot;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">function subType ()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//继承了SuperType</div><div class="line">SubType.prototype = new SuperType();</div><div class="line"></div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);            //&quot;red,blue,green,black&quot;</div><div class="line"></div><div class="line">var instance2 = new SubType();</div><div class="line">alert(instance2.colors);            //&quot;red,blue,green,black&quot;</div></pre></td></tr></table></figure></p>
+<p>这个例子中的SuperType构造函数定义了一个colors属性，该属性包含一个数组（引用类型值）。SuperType的每个实例都会有个字包含自己数组的colors属性。当SubType通过原型链继承了SuperType之后，SubType.prototype就变成了SuperType的一个实例，因此它也拥有了一个它自己的colors属性——就跟专门创建一个SubType.prototype.colors属性一样。但结果是什么呢？结果是SubType的所有实例都会共享一个colors属性。而我们对instance1.colors的修改能够通过instance2.colors反应出来，就已经充分验证了这一点。</p>
+<p>原型链的第二个问题是：在创建子类型的实例时，不能向超类型的构造函数中传递参数。实际上，应该说是没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。有鉴于此，再加上前面刚刚讨论过的由于原型中包含引用类型值所带来的问题，实践中很少会单独使用原型链。</p>
+<h4 id="借用构造函数的问题"><a href="#借用构造函数的问题" class="headerlink" title="借用构造函数的问题"></a>借用构造函数的问题</h4><p>在解决原型中包含引用类型值所带来的问题的过程中，开发人员开始使用一种叫做借用鼓噪函数的技术（有时候也叫作伪构造对象或经典继承）。这种技术的基本思想相当简单，即在子类型构造函数的内部调用超类型构造函数。别忘了，函数只不过是在特定环境中执行代码的对象，因此通过使用apply()和call()方法也可以在（将来）新创建的对象上执行构造函数，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function SuperType ()&#123;</div><div class="line">    this.colors = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];</div><div class="line">&#125;</div><div class="line">function SubType ()&#123;</div><div class="line">    //继承了SuperType</div><div class="line">    SuperType.call(this); //1</div><div class="line">&#125;</div><div class="line">var instance1 = new Subtype();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">alert(instance1.colors);          //&quot;red,blue,green,black&quot;</div><div class="line"></div><div class="line">var instance2 = new SubType();</div><div class="line">alert(instance2.colors);          //&apos;red,blue,green&apos;</div></pre></td></tr></table></figure></p>
+<p>代码中1“借调”了超类型的构造函数。通过使用call()方法（或apply()方法也可以），我们实际上是在（未来将要）新创建的SubType实例的环境下调用了SuperType构造函数。这样一来，就会在新SubType对象上执行SuperType函数中定义的所有对象初始化代码。结果，SubType的每个实例都会具有自己的colors属性的副本了。</p>
+<h6 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h6><p>相对于原型链而言，借用构造函数有一个很大的有时候，即可以在子类型构造函数中向超类型构造函数传递参数。看下面的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function SuperType (name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">function SubType ()&#123;</div><div class="line">    //继承了SuperType，同时还传递了参数</div><div class="line">    SuperType.call(this, &quot;Nicholas&quot;);</div><div class="line"></div><div class="line">    //实例属性</div><div class="line">    this.age = 29;</div><div class="line">&#125;</div><div class="line">var instance = new SubType();</div><div class="line">alert(instance.name);          //&quot;Nicholas&quot;</div><div class="line">alert(insatnce.age);           //29</div></pre></td></tr></table></figure></p>
+<p>以上代码中的SuperType只接受一个参数name，该参数会直接赋给一个属性。在SubType构造函数内部调用SuperType构造函数时，实际上是为Subtype的实例设置了name属性。为了确保SuperType构造函数不会重写子类型的属性，可以在调用超类型构造函数后，再添加应该在子类型中定义的属性。</p>
+<h6 id="借用构造函数的问题-1"><a href="#借用构造函数的问题-1" class="headerlink" title="借用构造函数的问题"></a>借用构造函数的问题</h6><p>如果仅仅是借用构造函数，那么将无法避免构造函数存在的问题——方法都在构造函数中定义，因此函数复用就无从谈起了。而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结果所有子类型都只能使用构造函数模式。考虑到这些问题，借用构造函数的技术也是很少单独使用的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/03/combination-inheritance/" data-id="cirx73htv0003e2ufnt85s5v6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/03/commonreg/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用正则表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/03/welcome/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">欢迎使用GitBlog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/saesign/">怎么去掉sae的实名认证提示</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/12/hexo/">如何在githuhb上面搭建一个博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/11/emoji/">怎么能够阻止在输入框中输入emoji表情</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/10/zeptozip/">使用require和zepto在打包时存在的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
